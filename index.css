@@ -1,0 +1,156 @@
+body{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif;
+  background-color: #FFFFFF;
+}
+.navbar-nav{
+  margin-left: 330px;
+  gap: 40px;
+}
+.nav-link{
+  color: rgba(255,255,255,0.9);
+}
+.nav-link:hover{
+  color:black;
+}
+.bg-image-block {
+  background-image: url('logo.jpg'); /* Replace with your image URL */
+  background-size: cover;
+  background-position: center;
+  margin-top: 0;
+  height: 800px;
+  width: 100%;
+}
+
+
+
+/* Row container */
+.row1 {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 100px; /* Reduced gap for better layout */
+  background-color: #f8f9fa; /* Light background for contrast */
+}
+
+/* Enhanced Card Styling */
+.card {
+  height: 400px;
+  width: 300px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color:#FAF3E0;
+}
+
+/* Hover Effects */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Optional: Style card title and text */
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #555;
+}
+
+/*news room*/
+.newsroom-section {
+  background-color: #f0f4f8;
+}
+
+.news-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
+  height: 100%;
+}
+
+.news-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+}
+
+.news-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.news-desc {
+  color: #555;
+  margin-top: 10px;
+}
+
+.news-link {
+  display: inline-block;
+  margin-top: 15px;
+  color: #0d6efd;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.news-link:hover {
+  text-decoration: underline;
+}
+/*about block and footer*/
+.footer {
+  background-color: #1c1c1c; /* Matte black */
+}
+
+.footer-link {
+  color: #bbb;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.bi {
+  font-size: 1.25rem;
+}
+
+
+
+  /* Mobile responsiveness - add this to your CSS */
+  @media (max-width: 992px) {
+    .navbar-nav {
+      margin-left: 0 !important;
+      text-align: center;
+      width: 100%;
+      gap: 0px;
+    }
+    
+    .navbar-nav .nav-link {
+      padding: 10px 0;
+    }
+    
+    .d-flex.align-items-center.ms-auto {
+      margin-right: 0 !important;
+      justify-content: center;
+      width: 100%;
+      padding: 15px 0;
+    }
+    .row1{
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      height: 1000px;
+    }
+    
+  }
