@@ -1,35 +1,54 @@
+html{
+  scroll-behavior: smooth;
+}
 body{
   padding: 0;
-  margin: 0;
+  margin: 56px 0 0;
   box-sizing: border-box;
   font-family: 'Times New Roman', Times, serif;
   background-color: #FFFFFF;
 }
 .navbar-nav{
-  margin-left: 330px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 40px;
 }
 .nav-link{
   color: rgba(255,255,255,0.9);
 }
 .nav-link:hover{
-  color:black;
+  color:black
 }
+
+
 .bg-image-block {
-  background-image: url('logo.jpg'); /* Replace with your image URL */
+  background-image: url('logo2.png'); /* Replace with your image URL */
   background-size: cover;
   background-position: center;
-  margin-top: 0;
-  height: 800px;
+  height: 850px;
   width: 100%;
 }
+.welcome{
+  color:darkgreen;
+  animation: wel 3s;
+}
+@keyframes wel{
+  from{
+    transform:scale(2);
+    color: darkseagreen;
+  }
+  to{
+    transform: scale(1);
+    color: rgb(128, 15, 38);
 
-
-
+  }
+}
 /* Row container */
 .row1 {
   width: 100%;
-  height: 500px;
+  height: 400px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -40,13 +59,13 @@ body{
 
 /* Enhanced Card Styling */
 .card {
-  height: 400px;
-  width: 300px;
+  height: 200px;
+  width: 400px;
+  text-align: center;
   border: none;
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color:#FAF3E0;
 }
 
 /* Hover Effects */
@@ -129,17 +148,18 @@ body{
 
   /* Mobile responsiveness - add this to your CSS */
   @media (max-width: 992px) {
+    html{
+      scroll-behavior: smooth;
+    }
     .navbar-nav {
       margin-left: 0 !important;
       text-align: center;
       width: 100%;
       gap: 0px;
     }
-    
     .navbar-nav .nav-link {
       padding: 10px 0;
     }
-    
     .d-flex.align-items-center.ms-auto {
       margin-right: 0 !important;
       justify-content: center;
@@ -149,8 +169,8 @@ body{
     .row1{
       display: flex;
       flex-direction: column;
-      gap: 0;
-      height: 1000px;
+      gap: 10px;
+      height: 500px;
     }
     
   }
