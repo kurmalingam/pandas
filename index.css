@@ -5,7 +5,7 @@ body{
   padding: 0;
   margin: 56px 0 0;
   box-sizing: border-box;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   background-color: #FFFFFF;
 }
 .navbar-nav{
@@ -25,7 +25,8 @@ body{
 
 .bg-image-block {
   background-image: url('logo2.png'); /* Replace with your image URL */
-  background-size: cover;
+  background-size:cover;
+  background-repeat: no-repeat;
   background-position: center;
   height: 850px;
   width: 100%;
@@ -96,6 +97,7 @@ body{
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease-in-out;
   height: 100%;
+  text-align: center;
 }
 
 .news-card:hover {
@@ -147,7 +149,7 @@ body{
 
 
   /* Mobile responsiveness - add this to your CSS */
-  @media (max-width: 992px) {
+  @media only screen and (max-width: 600px) {
     html{
       scroll-behavior: smooth;
     }
@@ -160,6 +162,12 @@ body{
     .navbar-nav .nav-link {
       padding: 10px 0;
     }
+     .bg-image-block {
+    height: 60vh;
+    background-size: 100%;
+    padding-top: 0 !important;
+    margin-top: 56px !important; /* Maintain space for navbar */
+  }
     .d-flex.align-items-center.ms-auto {
       margin-right: 0 !important;
       justify-content: center;
