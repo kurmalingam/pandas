@@ -173,17 +173,22 @@
         </form>
 
         <form id="register-form" onsubmit="handleRegister(event)">
-            <input type="text" id="register-username" placeholder="Choose Username" required />
-            <input type="password" id="register-password" placeholder="Create Password" required />
-            <select id="user-type" style="padding: 12px 15px; border-radius: 25px; border: 2px solid #e0e0e0;">
-                <option value="customer">Customer</option>
-                <option value="admin">Admin</option>
-            </select>
-            <p id="register-error" class="message error-message"></p>
-            <p id="register-success" class="message success-message"></p>
-            <button type="submit" class="register-btn">Register</button>
-            <p class="switch-form" onclick="showLoginForm()">Already have an account? Login here</p>
-        </form>
+    <select id="user-type" style="padding: 12px 15px; border-radius: 25px; border: 2px solid #e0e0e0;">
+        <option value="">Signup as</option>
+        <option value="customer">Customer</option>
+        <option value="admin">Admin</option>
+    </select>
+    <input type="text" id="register-username" placeholder="Choose Username" required />
+    <input type="password" id="register-password" placeholder="Create Password" required />
+    <input type="password" id="register-confirm-password" placeholder="Confirm Password" required />
+    <input type="email" id="register-email" placeholder="Email ID" required />
+    <input type="tel" id="register-contact" placeholder="Contact Number" pattern="[0-9]{10}" required />
+
+    <p id="register-error" class="message error-message"></p>
+    <p id="register-success" class="message success-message"></p>
+    <button type="submit" class="register-btn">Register</button>
+    <p class="switch-form" onclick="showLoginForm()">Already have an account? Login here</p>
+</form>
     </div>
 
     <div id="error-modal" class="modal">
