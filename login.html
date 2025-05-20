@@ -1,365 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Portal</title>
-    <style>
-        body {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            height: 100vh;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-        }
-        
-        .container {
-            width: 350px;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-            background: white;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-        
-        #title {
-            color: #4a6baf;
-            margin-bottom: 25px;
-            font-size: 28px;
-            font-weight: 700;
-        }
-        
-        .choice-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        button {
-            padding: 12px 20px;
-            border: none;
-            border-radius: 25px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-        
-        .customer-btn {
-            background-color: #4a6baf;
-            color: white;
-        }
-        
-        .admin-btn {
-            background-color: #ff7e5f;
-            color: white;
-        }
-        
-        .register-btn {
-            background-color: #6c5ce7;
-            color: white;
-        }
-        
-        .login-btn {
-            background-color: #4CAF50;
-            color: white;
-        }
-        
-        button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        #login-form, #register-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        
-        input {
-            padding: 12px 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 25px;
-            font-size: 16px;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-        
-        input:focus {
-            border-color: #4a6baf;
-        }
-        
-        .message {
-            font-size: 14px;
-            margin-top: -10px;
-            display: none;
-        }
-        
-        .error-message {
-            color: #e74c3c;
-        }
-        
-        .success-message {
-            color: #4CAF50;
-            font-weight: 600;
-        }
-        
-        .switch-form {
-            color: #666;
-            cursor: pointer;
-            margin-top: 15px;
-            font-weight: 500;
-        }
-        
-        .switch-form:hover {
-            color: #4a6baf;
-            text-decoration: underline;
-        }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-        
-        .modal-content {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            width: 300px;
-            text-align: center;
-        }
-        
-        .modal-btn {
-            margin-top: 15px;
-            padding: 8px 15px;
-            background-color: #4a6baf;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+
+    .main-login {
+      width: 350px;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      border-radius: 20px;
+    }
+
+    #title {
+      color: #4a6baf;
+      margin-bottom: 30px;
+      font-size: 28px;
+      font-weight: 700;
+    }
+
+    #choice-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    #choice-buttons button,
+    #login-form button,
+    #register-form button,
+    .back-btn {
+      padding: 12px 25px;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .customer-btn {
+      background: linear-gradient(135deg, #4a6baf, #6c7fd1);
+    }
+
+    .operator-btn {
+      background: linear-gradient(135deg, #4CAF50, #66bb6a);
+    }
+
+    .admin-btn {
+      background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    }
+
+    .register-btn {
+      background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    }
+
+    .back-btn {
+      background: #888;
+      margin-top: 10px;
+    }
+
+    form {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    input, select {
+      padding: 12px 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 25px;
+      font-size: 16px;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, select:focus {
+      border-color: #4a6baf;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h2 id="title">Welcome to Dry Pandas</h2>
-        <div id="choice-buttons" class="choice-buttons">
-            <button class="customer-btn" onclick="showLoginForm('customer')">Login as Customer</button>
-            <button class="admin-btn" onclick="showLoginForm('admin')">Login as Admin</button>
-            <button class="register-btn" onclick="showRegisterForm()">Register New Account</button>
-        </div>
+  <div class="main-login">
+    <h1 id="title">Welcome to Dry Panda</h1>
 
-        <form id="login-form" onsubmit="handleLogin(event)">
-            <input type="text" id="login-username" placeholder="Username" required />
-            <input type="password" id="login-password" placeholder="Password" required />
-            <p id="login-error" class="message error-message"></p>
-            <p id="login-success" class="message success-message"></p>
-            <button type="submit" class="login-btn">Login</button>
-            <p class="switch-form" onclick="showRegisterForm()">Don't have an account? Register here</p>
-        </form>
+    <!-- Choice Buttons -->
+    <div id="choice-buttons">
+      <button class="customer-btn" onclick="showLoginForm()">Login as Customer</button>
+      <button class="operator-btn" onclick="showLoginForm()">Login as Operator</button>
+      <button class="admin-btn" onclick="showLoginForm()">Login as Admin</button>
+      <button class="register-btn" onclick="showRegisterForm()">Register New Account</button>
+    </div>
 
-        <form id="register-form" onsubmit="handleRegister(event)">
-    <select id="user-type" style="padding: 12px 15px; border-radius: 25px; border: 2px solid #e0e0e0;">
-        <option value="">Signup as</option>
+    <!-- Login Form -->
+    <form id="login-form">
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Password" required />
+      <button type="submit" class="operator-btn">Login</button>
+      <button type="button" class="back-btn" onclick="goBack()">Back</button>
+    </form>
+
+    <!-- Register Form -->
+    <form id="register-form">
+      <select required>
+        <option value="">Select Registration Type</option>
+        <option value="operator">Operator</option>
         <option value="customer">Customer</option>
-        <option value="admin">Admin</option>
-    </select>
-    <input type="text" id="register-username" placeholder="Choose Username" required />
-    <input type="password" id="register-password" placeholder="Create Password" required />
-    <input type="password" id="register-confirm-password" placeholder="Confirm Password" required />
-    <input type="email" id="register-email" placeholder="Email ID" required />
-    <input type="tel" id="register-contact" placeholder="Contact Number" pattern="[0-9]{10}" required />
+      </select>
+      <input type="text" placeholder="Username" required />
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Password" required />
+      <input type="password" placeholder="Confirm Password" required />
+      <input type="tel" placeholder="Contact Number" pattern="[0-9]{10}" required />
+      <button type="submit" class="register-btn">Register</button>
+      <button type="button" class="back-btn" onclick="goBack()">Back</button>
+    </form>
+  </div>
 
-    <p id="register-error" class="message error-message"></p>
-    <p id="register-success" class="message success-message"></p>
-    <button type="submit" class="register-btn">Register</button>
-    <p class="switch-form" onclick="showLoginForm()">Already have an account? Login here</p>
-</form>
-    </div>
+  <script>
+    const loginForm = document.getElementById('login-form');
+    const registerForm = document.getElementById('register-form');
+    const choiceButtons = document.getElementById('choice-buttons');
 
-    <div id="error-modal" class="modal">
-        <div class="modal-content">
-            <h3>Registration Required</h3>
-            <p>You need to register first before logging in.</p>
-            <button class="modal-btn" onclick="hideModal()">OK</button>
-        </div>
-    </div>
+    function showLoginForm() {
+      choiceButtons.style.display = 'none';
+      loginForm.style.display = 'flex';
+      registerForm.style.display = 'none';
+    }
 
-    <script>
-        // DOM Elements
-        const loginForm = document.getElementById('login-form');
-        const registerForm = document.getElementById('register-form');
-        const choiceButtons = document.getElementById('choice-buttons');
-        
-        // Initially hide forms
-        loginForm.style.display = 'none';
-        registerForm.style.display = 'none';
-        
-        // Initialize users in localStorage if not exists
-        if(!localStorage.getItem('users')) {
-            localStorage.setItem('users', JSON.stringify([]));
-        }
-        
-        // Show login form
-        function showLoginForm(type = '') {
-            choiceButtons.style.display = 'none';
-            registerForm.style.display = 'none';
-            loginForm.style.display = 'flex';
-            if(type) {
-                document.getElementById('login-username').focus();
-            }
-            clearMessages();
-        }
-        
-        // Show register form
-        function showRegisterForm() {
-            choiceButtons.style.display = 'none';
-            loginForm.style.display = 'none';
-            registerForm.style.display = 'flex';
-            document.getElementById('register-username').focus();
-            clearMessages();
-        }
-        
-        // Show main buttons
-        function showMainButtons() {
-            loginForm.style.display = 'none';
-            registerForm.style.display = 'none';
-            choiceButtons.style.display = 'flex';
-            clearMessages();
-        }
-        
-        // Clear all messages
-        function clearMessages() {
-            document.querySelectorAll('.message').forEach(el => {
-                el.style.display = 'none';
-                el.textContent = '';
-            });
-        }
-        
-        // Show modal
-        function showModal() {
-            document.getElementById('error-modal').style.display = 'flex';
-        }
-        
-        // Hide modal
-        function hideModal() {
-            document.getElementById('error-modal').style.display = 'none';
-        }
-        
-        // Handle registration
-        function handleRegister(event) {
-            event.preventDefault();
-            
-            const username = document.getElementById('register-username').value;
-            const password = document.getElementById('register-password').value;
-            const userType = document.getElementById('user-type').value;
-            
-            // Clear messages
-            clearMessages();
-            
-            // Validate inputs
-            if(!username || !password) {
-                document.getElementById('register-error').textContent = 'Please fill all fields';
-                document.getElementById('register-error').style.display = 'block';
-                return;
-            }
-            
-            // Check if user already exists
-            const users = JSON.parse(localStorage.getItem('users'));
-            const userExists = users.some(user => user.username === username);
-            
-            if(userExists) {
-                document.getElementById('register-error').textContent = 'Username already exists';
-                document.getElementById('register-error').style.display = 'block';
-                return;
-            }
-            
-            // Add new user
-            users.push({
-                username,
-                password, // Note: In real app, you should NEVER store plain text passwords
-                type: userType
-            });
-            
-            localStorage.setItem('users', JSON.stringify(users));
-            
-            // Show success message
-            document.getElementById('register-success').textContent = 'Registration successful!';
-            document.getElementById('register-success').style.display = 'block';
-            
-            // Clear form
-            event.target.reset();
-            
-            // Show login form after delay
-            setTimeout(() => {
-                showLoginForm();
-            }, 1500);
-        }
-        
-        // Handle login
-        function handleLogin(event) {
-            event.preventDefault();
-            
-            const username = document.getElementById('login-username').value;
-            const password = document.getElementById('login-password').value;
-            
-            // Clear messages
-            clearMessages();
-            
-            // Validate inputs
-            if(!username || !password) {
-                document.getElementById('login-error').textContent = 'Please fill all fields';
-                document.getElementById('login-error').style.display = 'block';
-                return;
-            }
-            
-            // Check if user exists
-            const users = JSON.parse(localStorage.getItem('users'));
-            const user = users.find(user => user.username === username);
-            
-            if(!user) {
-                showModal();
-                return;
-            }
-            
-            // Check password (in real app, compare hashed passwords)
-            if(user.password !== password) {
-                document.getElementById('login-error').textContent = 'Incorrect password';
-                document.getElementById('login-error').style.display = 'block';
-                return;
-            }
-            
-            // Login successful
-            document.getElementById('login-success').textContent = 'Login successful! Redirecting...';
-            document.getElementById('login-success').style.display = 'block';
-            
-            // Store current user session
-            localStorage.setItem('currentUser', JSON.stringify(user));
-            
-            // Redirect to main page
-            setTimeout(() => {
-                window.location.href = 'main.html';
-            }, 1500);
-        }
-        
-        // Check for existing session
-        if(localStorage.getItem('currentUser')) {
-            window.location.href = 'main.html';
-        }
-    </script>
+    function showRegisterForm() {
+      choiceButtons.style.display = 'none';
+      loginForm.style.display = 'none';
+      registerForm.style.display = 'flex';
+    }
+
+    function goBack() {
+      loginForm.style.display = 'none';
+      registerForm.style.display = 'none';
+      choiceButtons.style.display = 'flex';
+    }
+  </script>
 </body>
 </html>
