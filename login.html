@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login</title>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <style>
     body {
       padding: 0;
@@ -121,7 +122,7 @@
     </form>
 
     <!-- Register Form -->
-    <form id="register-form">
+    <form id="register-form" action="#" method="POST">
       <select required>
         <option value="">Select Registration Type</option>
         <option value="operator">Operator</option>
@@ -132,6 +133,8 @@
       <input type="password" placeholder="Password" required />
       <input type="password" placeholder="Confirm Password" required />
       <input type="tel" placeholder="Contact Number" pattern="[0-9]{10}" required />
+      <!-- google recaptcha -->
+      <div class="g-recaptcha" data-sitekey="6LcDFEMrAAAAADsZX9mnCcGPnr1O9-3hjgfu6Paq" style="padding: 20px;"></div>
       <button type="submit" class="register-btn">Register</button>
       <button type="button" class="back-btn" onclick="goBack()">Back</button>
     </form>
