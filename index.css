@@ -22,30 +22,70 @@ body{
   color:black
 }
 
-
 .bg-image-block {
-  background-image: url('logo2.png'); /* Replace with your image URL */
-  background-size:cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 850px;
+  height: 100vh;
   width: 100%;
+  background-image: url('./logo2.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment:fixed !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
-.welcome{
+/* Animation */
+/* Merge duplicate animation rules */
+.welcome {
+  font-size: 3rem;
   color:darkgreen;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
   animation: wel 3s;
 }
-@keyframes wel{
-  from{
-    transform:scale(2);
-    color: darkseagreen;
-  }
-  to{
-    transform: scale(1);
-    color: rgb(128, 15, 38);
 
+@keyframes wel {
+  from {
+    transform: scale(2);
+    color: rgb(48, 172, 48);
+  }
+  to {
+    transform: scale(1);
+    color: green;
   }
 }
+
+
+.scroll-down {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #2f4f2f; /* Dark green color */
+  text-shadow: 0 0 5px rgba(255,255,255,0.5); /* White shadow for better visibility */
+  animation: bounce 2s infinite;
+}
+
+.scroll-down svg {
+  margin-bottom: 5px;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) translateX(-50%);
+  }
+  40% {
+    transform: translateY(-15px) translateX(-50%);
+  }
+  60% {
+    transform: translateY(-7px) translateX(-50%);
+  }
+}
+
+
 /* Row container */
 .row1 {
   width: 100%;
@@ -148,37 +188,156 @@ body{
 
 
 
-  /* Mobile responsiveness - add this to your CSS */
-  @media only screen and (max-width: 600px) {
-    html{
-      scroll-behavior: smooth;
-    }
-    .navbar-nav {
-      margin-left: 0 !important;
-      text-align: center;
-      width: 100%;
-      gap: 0px;
-    }
-    .navbar-nav .nav-link {
-      padding: 10px 0;
-    }
-     .bg-image-block {
-    height: 60vh;
-    background-size: 100%;
-    padding-top: 0 !important;
-    margin-top: 56px !important; /* Maintain space for navbar */
+  /* Base mobile styles (applies to all mobile devices) */
+@media only screen and (max-width: 1024px) {
+  .navbar-nav {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px 0;
   }
-    .d-flex.align-items-center.ms-auto {
-      margin-right: 0 !important;
-      justify-content: center;
-      width: 100%;
-      padding: 15px 0;
-    }
-    .row1{
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      height: 500px;
-    }
-    
+  
+  .d-flex.align-items-center.ms-auto {
+    justify-content: center;
+    margin: 15px auto 0 !important;
   }
+  
+  .welcome {
+    font-size: 2rem;
+    padding: 0 20px;
+    text-align: center;
+  }
+  
+  .bg-image-block {
+    background-attachment: scroll; /* Better performance on mobile */
+  }
+  
+  .row1 {
+    flex-direction: column;
+    height: auto;
+    padding: 30px 0;
+    gap: 30px;
+  }
+  
+  .card {
+    width: 90%;
+    margin: 0 auto;
+  height: auto;
+    padding: 20px;
+  }
+}
+
+/* Small phones (up to 360px) */
+@media only screen and (max-width: 360px) {
+  .welcome {
+    font-size: 1.5rem;
+  }
+  
+  .news-card {
+    padding: 15px;
+  }
+  
+  .news-title {
+    font-size: 1.1rem;
+  }
+  
+  .footer .col-md-4 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+}
+
+/* Medium phones (361px to 414px) */
+@media only screen and (min-width: 361px) and (max-width: 414px) {
+  .welcome {
+    font-size: 1.8rem;
+  }
+  
+  .card-title {
+    font-size: 1.3rem;
+  }
+}
+
+/* Large phones (415px to 600px) */
+@media only screen and (min-width: 415px) and (max-width: 600px) {
+  .welcome {
+    font-size: 2rem;
+  }
+  
+  .row1 {
+    gap: 40px;
+  }
+}
+
+/* Tablets (601px to 768px) */
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .row1 {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    width: 45%;
+    min-width: 250px;
+  }
+}
+
+
+/* Landscape orientation for phones */
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+  .bg-image-block {
+    height: 150vh;
+  }
+  
+  .welcome {
+    font-size: 2.2rem;
+  }
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.9%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+}
+
+/* Additional improvements for content sections */
+@media only screen and (max-width: 768px) {
+  .about-section .row,
+  .newsroom-section .row {
+    flex-direction: column;
+  }
+  
+  .about-section .col-md-6,
+  .newsroom-section .col-md-4 {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  
+  footer .row {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  footer .col-md-4 {
+    margin-bottom: 25px;
+  }
+  
+  .news-card {
+    margin-bottom: 20px;
+  }
+}
+
+/* High-resolution devices */
+@media 
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-resolution: 192dpi) {
+  .welcome {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  }
+  
+  .card {
+    border: 0.5px solid #eee;
+  }
+}
