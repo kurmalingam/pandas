@@ -12,16 +12,15 @@
 <body>
 <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary" style="background: linear-gradient(300deg, #6b8e23, #3e6638, #2f4f2f);">
   <div class="container-fluid">
-    <img src="./logo2.png" alt="" style="width: 50px; height: 40px; border-radius: 10px;">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+<img src="./logo2.png" alt="Dry Pandas Logo" style="width: 50px; height: 40px; border-radius: 10px;">    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="font-size:larger; font-weight:bolder;font-style: italic;">
       <div class="navbar-nav">
-        <a class="nav-link" href="#">About Us</a>
-        <a class="nav-link" href="#">Product Details</a>
+        <a class="nav-link" href="#about-section">About Us</a>
+        <a class="nav-link" href="#product-details">Product Details</a>
         <a class="nav-link" href="https://forms.gle/FNU16sY7u1wUbH4d9">Careers</a>
-        <a class="nav-link" href="#">Contact Us</a>
+        <a class="nav-link" href="#contact-us">Contact Us</a>
       </div>
       <hr style="color: white;">
       <div class="d-flex align-items-center ms-auto" style="margin-right: 35px;">
@@ -29,22 +28,26 @@
           <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
           <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
         </svg>
-        <a class="nav-link" href="./login.html" target="_blank">Login</a>
+        <a class="nav-link" href="./login1.html" target="_blank">Login</a>
       </div>
     </div>
   </div>
 </nav>
 
-<div class="bg-image-block">
-  <!-- Optional content inside the block -->
-  <div class="text-center text-white d-flex justify-content-center align-items-center h-100">
-    <h1 class="welcome">Welcome to Dry Pandas</h1>
-  </div>
+<div class="bg-image-block d-flex justify-content-center align-items-center">
+  <h1 class="welcome">Welcome to Dry Pandas</h1>
+ <div class="scroll-down">
+  <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7 10L12 15L17 10" stroke="#2f4f2f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+  <span style="color: #2f4f2f;">Scroll Down</span>
+</div>
 </div>
 
 
 
- <div class="row1">
+
+ <div id="product-details" class="row1">
   <div class="col-sm-3 mb-3 mb-sm-0"> <!-- 9/12 = 75% -->
     <div class="card">
       <div class="card-body">
@@ -99,7 +102,7 @@
 
 
 
-<section class="about-section py-5 bg-light">
+<section id="about-section" class="about-section py-5 bg-light">
   <div class="container">
     <h2 class="text-center mb-4">About Dry Pandas</h2>
     <p class="text-center text-muted mb-5">Innovating sustainable solutions for a greener tomorrow.</p>
@@ -124,7 +127,7 @@
 </section>
 
 
-<footer class="footer text-white py-4">
+<footer id="contact-us" class="footer text-white py-4">
   <div class="container">
     <div class="row">
       <!-- Contact Info -->
