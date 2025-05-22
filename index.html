@@ -162,8 +162,8 @@
  <!-- Fotter Style and background image -->
 <style>
   .footer {
-    background-color: #111;
-    background-image: url('Panda1.jpg'); /* Update this path based on your repo structure */
+    background: linear-gradient(to right, #dbe3da 40%, #111 40%);
+    background-image: url('Panda1.jpg'); /* Replace with your image path */
     background-repeat: no-repeat;
     background-position: left bottom;
     background-size: contain;
@@ -173,18 +173,42 @@
   .footer-link {
     color: white;
     text-decoration: none;
+    transition: color 0.3s ease;
   }
 
   .footer-link:hover {
+    color: #f0c040;
     text-decoration: underline;
+  }
+
+  .footer-icon {
+    color: white;
+    font-size: 1.3rem;
+    transition: color 0.3s ease;
+  }
+
+  .footer-icon:hover {
+    color: #f0c040;
+  }
+
+  .footer .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  @media (max-width: 768px) {
+    .footer {
+      background: #111;
+      background-image: none;
+    }
   }
 </style>
 
-<footer id="contact-us" class="footer text-white py-4">
+<footer id="contact-us" class="footer text-white py-5">
   <div class="container">
     <div class="row">
       <!-- Contact Info -->
-      <div class="col-md-4 mb-3">
+      <div class="col-md-4 mb-4">
         <h5>Contact Us</h5>
         <p><i class="bi bi-envelope me-2"></i> contact@drypandas.com</p>
         <p><i class="bi bi-telephone me-2"></i> +91 98765 43210</p>
@@ -192,7 +216,7 @@
       </div>
 
       <!-- Quick Links -->
-      <div class="col-md-4 mb-3">
+      <div class="col-md-4 mb-4">
         <h5>Quick Links</h5>
         <ul class="list-unstyled">
           <li><a href="#" class="footer-link">Home</a></li>
@@ -203,20 +227,21 @@
       </div>
 
       <!-- Social Icons -->
-      <div class="col-md-4 mb-3">
+      <div class="col-md-4 mb-4">
         <h5>Follow Us</h5>
-        <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="text-white me-3"><i class="bi bi-linkedin"></i></a>
-        <a href="#" class="text-white"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" class="footer-icon me-3"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="footer-icon me-3"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="footer-icon me-3"><i class="bi bi-linkedin"></i></a>
+        <a href="#" class="footer-icon"><i class="bi bi-twitter-x"></i></a>
       </div>
     </div>
 
-    <div class="text-center pt-3 border-top mt-3">
+    <div class="text-center pt-3 border-top mt-4">
       <small>&copy; 2025 Dry Pandas. All rights reserved.</small>
     </div>
   </div>
 </footer>
+
 
 
 
