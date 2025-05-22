@@ -43,7 +43,7 @@
   <span style="color: #2f4f2f;">Scroll Down</span>
 </div>
 </div>
-
+  <!-- CARDS  -->
 <style>
   .row1 {
     display: flex;
@@ -60,20 +60,28 @@
     overflow: hidden;
   }
 
-  /* Specific background only for the first card */
+  /* Panda background only for first card */
   .panda-card {
-    background-image: url('panda-bg.jpg');
+    background-image: url('assets/images/panda-bg.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    position: relative;
     color: #000;
+    position: relative;
   }
 
+  /* Make panda visible but readable text */
   .panda-card .card-body {
-    background-color: rgba(255, 255, 255, 0.92); /* More visible panda, readable text */
+    background-color: rgba(255, 255, 255, 0.6); /* more transparent */
     padding: 1rem;
     border-radius: 0;
+    backdrop-filter: blur(1px); /* optional: slight blur for contrast */
+  }
+
+  .panda-card h5,
+  .panda-card p,
+  .panda-card a {
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9); /* text remains clear */
   }
 
   .card-body {
@@ -100,9 +108,6 @@
     </div>
   </div>
 </div>
-
-
-
 
 <section class="newsroom-section py-5">
   <div class="container">
