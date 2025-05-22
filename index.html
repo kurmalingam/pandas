@@ -55,42 +55,44 @@
 
   .card {
     width: 300px;
+    height: 400px; /* Ensure consistent height */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     overflow: hidden;
-  }
-
-  /* Panda background only for first card */
-  .panda-card {
-    background-image: url('assets/images/panda-bg.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: #000;
     position: relative;
   }
 
-  /* Make panda visible but readable text */
-  .panda-card .card-body {
-    background-color: rgba(255, 255, 255, 0.6); /* more transparent */
-    padding: 1rem;
-    border-radius: 0;
-    backdrop-filter: blur(1px); /* optional: slight blur for contrast */
+  /* First card with panda image as full background */
+  .panda-card {
+    background-image: url('assets/images/panda-bg.jpg');
+    background-size: contain; /* Ensures full panda is visible */
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
-  .panda-card h5,
-  .panda-card p,
-  .panda-card a {
-    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9); /* text remains clear */
+  /* No overlay – keep image 100% visible */
+  .panda-card .card-body {
+    background-color: transparent;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.9), transparent); /* subtle fade for text */
   }
 
   .card-body {
     padding: 1rem;
   }
+
+  .card-title,
+  .card-text,
+  .btn {
+    color: #000;
+  }
 </style>
 
 <div id="product-details" class="row1">
-  <!-- FIRST CARD (Panda background) -->
+  <!-- FIRST CARD (Panda image full visible, scaled) -->
   <div class="card panda-card">
     <div class="card-body">
       <h5 class="card-title">E-cart for Dry food products</h5>
@@ -99,7 +101,7 @@
     </div>
   </div>
 
-  <!-- SECOND CARD (No background) -->
+  <!-- SECOND CARD (Plain background) -->
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Available Machinary</h5>
@@ -108,6 +110,7 @@
     </div>
   </div>
 </div>
+
 
 <section class="newsroom-section py-5">
   <div class="container">
