@@ -54,54 +54,45 @@
   }
 
   .card {
-    width: 300px;
-    height: 400px; /* Ensure consistent height */
+    width: 280px;
+    min-height: 360px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     overflow: hidden;
-    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fff;
   }
 
-  /* First card with panda image as full background */
-  .panda-card {
-    background-image: url('panda-bg.jpg');
-    background-size: contain; /* Ensures full panda is visible */
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-
-  /* No overlay – keep image 100% visible */
-  .panda-card .card-body {
-    background-color: transparent;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 1rem;
-    background: linear-gradient(to top, rgba(255, 255, 255, 0.9), transparent); /* subtle fade for text */
+  .card img.panda-img {
+    width: 160px;
+    margin: 0 auto 1rem;
+    display: block;
   }
 
   .card-body {
     padding: 1rem;
   }
 
-  .card-title,
-  .card-text,
   .btn {
-    color: #000;
+    margin-top: 0.5rem;
   }
 </style>
 
 <div id="product-details" class="row1">
-  <!-- FIRST CARD (Panda image full visible, scaled) -->
-  <div class="card panda-card">
+  <!-- First card with image BELOW text -->
+  <div class="card">
     <div class="card-body">
       <h5 class="card-title">E-cart for Dry food products</h5>
       <p class="card-text">Thank you for your support.</p>
       <a href="#" class="btn btn-primary">Coming soon💥✨</a>
     </div>
+    <img src="assets/images/panda-bg.jpg" alt="Panda" class="panda-img">
   </div>
 
-  <!-- SECOND CARD (Plain background) -->
+  <!-- Second card remains plain -->
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">Available Machinary</h5>
@@ -110,7 +101,6 @@
     </div>
   </div>
 </div>
-
 
 <section class="newsroom-section py-5">
   <div class="container">
