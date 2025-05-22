@@ -21,11 +21,11 @@ body{
 .nav-link:hover{
   color:black
 }
-
+/*backgrnd image of the main logo*/
 .bg-image-block {
   height: 100vh;
   width: 100%;
-  background-image: url('./logo2.png');
+  background-image: url('./logo_drypanda.png'); /* Logo name changed */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
