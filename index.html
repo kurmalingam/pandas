@@ -12,10 +12,11 @@
 <body>
 <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary" style="background: linear-gradient(300deg, #6b8e23, #3e6638, #2f4f2f);">
   <div class="container-fluid">
-<img src="./logo_drypanda.png" alt="Dry Pandas Logo" style="width: 50px; height: 40px; border-radius: 10px;">    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+<img src="./panda.png" alt="Dry Pandas Logo" style="width: 50px; height: 40px; border-radius: 10px;">    
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup" style="font-size:larger; font-weight:bolder;font-style: italic;">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link" href="#about-section">About Us</a>
         <a class="nav-link" href="#product-details">Product Details</a>
@@ -23,7 +24,7 @@
         <a class="nav-link" href="#contact-us">Contact Us</a>
       </div>
       <hr style="color: white;">
-      <div class="d-flex align-items-center ms-auto" style="margin-right: 35px;">
+      <div class="d-flex align-items-center ms-auto" style="margin-right: 20px;">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle me-2" viewBox="0 0 16 16" style="color: white;">
           <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
           <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
@@ -43,66 +44,34 @@
   <span style="color: #2f4f2f;">Scroll Down</span>
 </div>
 </div>
-  <!-- CARDS  -->
-<style>
-  .row1 {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 2rem;
-  }
 
-  .card {
-    width: 280px;
-    min-height: 360px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-radius: 12px;
-    overflow: hidden;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: #fff;
-  }
 
-  .card img.panda-img {
-    width: 160px;
-    margin: 0 auto 1rem;
-    display: block;
-  }
 
-  .card-body {
-    padding: 1rem;
-  }
 
-  .btn {
-    margin-top: 0.5rem;
-  }
-</style>
+ <div id="product-details" class="row1">
+  <div class="col-sm-3 mb-3 mb-sm-0"> <!-- 9/12 = 75% -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">E-cart for <br> Dry food products</h5>
+        <p class="card-text">Thank you for your support.</p>
+        <a href="#" class="btn btn-primary">Coming soon💥✨</a><br>
+        <img src="./p1.jpg" alt="panda1" style="width: 140px;">
 
-<div id="product-details" class="row1">
-  <!-- First card with image BELOW text -->
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">E-cart </h5>
-      <p class="card-text">Thank you for your support.</p>
-      <a href="#" class="btn btn-primary">Coming soon💥✨</a>
+      </div>
     </div>
-    <img src="cart_back_grnd_panda.jpg" alt="Panda" class="panda-img">
   </div>
-
-  <!-- Second card remains plain -->
-  <div class="card">
-    <div class="card-body">
-      <h5 class="card-title">Available Machinary</h5>
-      <p class="card-text">Thank you for your support.</p>
-      <a href="#" class="btn btn-primary">Coming soon💥✨</a>
+  <div class="col-sm-3"> <!-- 3/12 = 25% -->
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Available Machinary</h5>
+        <p class="card-text">Thank you for your support.</p>
+        <a href="#" class="btn btn-primary">Coming soon💥✨</a><br>
+        <img src="./p2.png" alt="panda2" style="width: 170px;">
+      </div>
     </div>
-        <img src="mac_logo.png" alt="Machines Panda" class="panda-img">
-
   </div>
 </div>
+
 
 <section class="newsroom-section py-5">
   <div class="container">
@@ -161,68 +130,60 @@
   </div>
 </section>
 
- <!-- Fotter Style and background image -->
-<!-- Fotter Style and background image -->
-<style>
-  .footer {
-    background-color: #111;
-    background-image: url('Panda1.jpg'); /* Update this path based on your repo structure */
-    background-repeat: no-repeat;
-    background-position: left bottom;
-    background-size: contain;
-    color: white;
-  }
 
-  .footer-link {
-    color: white;
-    text-decoration: none;
-  }
+<footer class="site-footer">
+    <div class="footer-background-container">
+      <div class="footer-content">
+        <div class="footer-sections-container">
 
-  .footer-link:hover {
-    text-decoration: underline;
-  }
-</style>
+          <div class="footer-section">
+            <h5 class="footer-heading">Contact Us</h5>
+            <ul class="footer-list">
+              <li class="footer-item">
+                <i class="bi bi-envelope footer-icon"></i>
+                <a href="mailto:contact@drypandas.com" class="footer-link">contact@drypandas.com</a>
+              </li>
+              <li class="footer-item">
+                <i class="bi bi-telephone footer-icon"></i>
+                <a href="tel:+919876543210" class="footer-link">+91 98765 43210</a>
+              </li>
+              <li class="footer-item">
+                <i class="bi bi-geo-alt footer-icon"></i>
+                <span>Visakhapatnam, Andhra Pradesh, India</span>
+              </li>
+            </ul>
+          </div>
 
-<footer id="contact-us" class="footer text-white py-4">
-  <div class="container">
-    <div class="row">
-      <!-- Contact Info -->
-      <div class="col-md-4 mb-3">
-        <h5>Contact Us</h5>
-        <p><i class="bi bi-envelope me-2"></i> contact@drypandas.com</p>
-        <p><i class="bi bi-telephone me-2"></i> ‪+91 98765 43210‬</p>
-        <p><i class="bi bi-geo-alt me-2"></i> Visakhapatnam, Andhra Pradesh, India</p>
-      </div>
+          <div class="footer-section">
+            <h5 class="footer-heading">Quick Links</h5>
+            <ul class="footer-list">
+              <li class="footer-item"><a href="#" class="footer-link">Home</a></li>
+              <li class="footer-item"><a href="#" class="footer-link">Careers</a></li>
+              <li class="footer-item"><a href="#product-details" class="footer-link">Product Details</a></li>
+              <li class="footer-item"><a href="#" class="footer-link">News Room</a></li>
+            </ul>
+          </div>
 
-      <!-- Quick Links -->
-      <div class="col-md-4 mb-3">
-        <h5>Quick Links</h5>
-        <ul class="list-unstyled">
-          <li><a href="#" class="footer-link">Home</a></li>
-          <li><a href="#" class="footer-link">Careers</a></li>
-          <li><a href="#" class="footer-link">Product Details</a></li>
-          <li><a href="#" class="footer-link">News Room</a></li>
-        </ul>
-      </div>
+          <div class="footer-section">
+            <h5 class="footer-heading">Follow Us</h5>
+            <div class="social-links">
+              <a href="#" class="social-link" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="social-link" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+              <a href="#" class="social-link" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+              <a href="#" class="social-link" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+            </div>
+          </div>
 
-      <!-- Social Icons -->
-      <div class="col-md-4 mb-3">
-        <h5>Follow Us</h5>
-        <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="text-white me-3"><i class="bi bi-linkedin"></i></a>
-        <a href="#" class="text-white"><i class="bi bi-twitter-x"></i></a>
+        </div>
       </div>
     </div>
 
-    <div class="text-center pt-3 border-top mt-3">
-      <small>&copy; 2025 Dry Pandas. All rights reserved.</small>
+    <div class="footer-bottom">
+      <p class="copyright">
+        &copy; 2025 Dry Pandas. All rights reserved.
+      </p>
     </div>
-  </div>
-</footer>
-
-
-
+  </footer>
 
 </body>
 </html>
