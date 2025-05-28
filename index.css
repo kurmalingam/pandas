@@ -1,35 +1,46 @@
+/* Global Styles */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; /* Smooth scrolling for anchor links */
 }
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: #ffffff;
 }
+
+/* Navigation Styles */
+.navbar {
+  background: linear-gradient(300deg, #6b8e23, #3e6638, #2f4f2f);
+  text-align: center;
+}
+
 .logo-img {
   width: 50px;
   height: 40px;
   border-radius: 10px;
   margin-right: 10px;
 }
-.navbar {
-  background: linear-gradient(300deg, #6b8e23, #3e6638, #2f4f2f);
-  text-align: center;
-}
+
 .navbar-nav .nav-link {
   color: #ffffffcc;
   font-size: 1.2rem;
   font-weight: bold;
   font-style: italic;
+  transition: color 0.3s ease;
 }
+
 .navbar-nav .nav-link:hover {
   color: #000;
 }
+
+/* Custom toggle icon color */
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.9%29' stroke-linecap='round' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
+/* Login wrapper styles */
 .login-wrapper {
   display: flex;
   align-items: center;
@@ -38,90 +49,74 @@ body {
   font-size: 1.2rem;
   font-weight: bold;
 }
-.nav-link:hover{
-  color: black !important;
+
+/* Hero Section Styles */
+.hero-section {
+  padding: 100px 0;
+  background-color: #f8f9fa;
 }
 
-@media (max-width: 991.98px) {
-  .navbar-nav {
-    gap: 10px !important;
-  }
-  .login-wrapper {
-    justify-content: center;
-    margin: 20px;
-  }
-}
-
-.bg-image-block{
-  height: 100vh;
-  background-image: url('./panda.png');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  text-align: center;
-}
-.welcome {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  color: darkgreen;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-}
-.scroll-down {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.hero-section h1 {
   color: #2f4f2f;
-  animation: bounce 2s infinite;
-  margin-bottom: 40px;
+  font-size: 2.5rem;
 }
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0) translateX(-50%);
-  }
-  40% {
-    transform: translateY(-15px) translateX(-50%);
-  }
-  60% {
-    transform: translateY(-7px) translateX(-50%);
-  }
+
+.hero-section .lead {
+  color: #6b8e23;
+  font-size: 1.25rem;
 }
+
+/* Card Styles */
 .card, .news-card {
   box-shadow: 0 4px 20px rgba(0, 128, 0, 0.2);
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   border: none;
+  border-radius: 10px;  
 }
+
 .card:hover, .news-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 8px 30px rgba(0, 128, 0, 0.3);
 }
+
+/* News Card Specific Styles */
 .news-card {
   background-color: #f8f9fa;
   border-radius: 10px;
   text-align: center;
 }
+
+/* Button Styles */
+.btn-primary {
+  background-color: #2f4f2f;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0a8f5c;
+}
+
+/* Footer Styles */
 .site-footer {
   background-color: #1e1e1e;
   color: white;
 }
+
 .site-footer a {
   text-decoration: none;
+  color: white;
 }
+
 .site-footer a:hover {
   text-decoration: underline;
 }
-@keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity: 1;}
-}
 
+/* Back-to-top Button */
 .float {
   position: fixed;
   width: 60px;
@@ -139,10 +134,23 @@ body {
   justify-content: center;
   transition: all 0.3s ease;
 }
+
 .float:hover {
   background-color: #6b8e23;
   transform: translateY(-5px);
 }
-.my-float {
+
+.float i {
   font-size: 24px;
+}
+/* Responsive Styles */
+@media (max-width: 991.98px) {
+  .navbar-nav {
+    gap: 5px !important;
+  }
+  
+  .login-wrapper {
+    justify-content: center;
+    margin: 20px;
+  }
 }
