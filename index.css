@@ -50,21 +50,14 @@ body {
   font-weight: bold;
 }
 
-/* Hero Section Styles */
-.hero-section {
-  padding: 100px 0;
-  background-color: #f8f9fa;
-}
-
-.hero-section h1 {
-  color: #2f4f2f;
-  font-size: 2.5rem;
-}
-
-.hero-section .lead {
-  color: #6b8e23;
-  font-size: 1.25rem;
-}
+ /* Hero Section */
+    .hero-section {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      padding: 150px 0;
+      color: white;
+    }
 
 /* Card Styles */
 .card, .news-card {
