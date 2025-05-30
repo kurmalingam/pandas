@@ -107,32 +107,33 @@
 
     <!-- Choice Buttons -->
     <div id="choice-buttons">
-      <button class="customer-btn" onclick="showLoginForm()">Login as Customer</button>
-      <button class="operator-btn" onclick="showLoginForm()">Login as Operator</button>
-      <button class="admin-btn" onclick="showLoginForm()">Login as Admin</button>
+      <button class="customer-btn" onclick="showLoginForm('customer')">Login as Customer</button>
+      <button class="operator-btn" onclick="showLoginForm('operator')">Login as Operator</button>
+      <button class="admin-btn" onclick="showLoginForm('admin')">Login as Admin</button>
       <button class="register-btn" onclick="showRegisterForm()">Register New Account</button>
     </div>
 
     <!-- Login Form -->
-    <form id="login-form">
-      <input type="email" placeholder="Email" required />
-      <input type="password" placeholder="Password" required />
+    <form id="login-form" method="POST">
+      <input type="email" id="loginEmail" name="email" placeholder="Email" required />
+      <input type="password" id="loginPassword" name="password" placeholder="Password" required />
+      <input type="hidden" id="loginRoleField" name="role" />
       <button type="submit" class="operator-btn">Login</button>
       <button type="button" class="back-btn" onclick="goBack()">Back</button>
     </form>
 
     <!-- Register Form -->
-    <form id="register-form" action="#" method="POST">
-      <select required>
+    <form id="register-form" onsubmit="return validateRegisterForm()" method="POST">
+      <select id="regType" name="regType" required>
         <option value="">Select Registration Type</option>
         <option value="operator">Operator</option>
         <option value="customer">Customer</option>
       </select>
-      <input type="text" placeholder="Username" required />
-      <input type="email" placeholder="Email" required />
-      <input type="password" placeholder="Password" required />
-      <input type="password" placeholder="Confirm Password" required />
-      <input type="tel" placeholder="Contact Number" pattern="[0-9]{10}" required />
+      <input type="text" id="regUsername" name="username" placeholder="Username" required />
+      <input type="email" id="regEmail" name="email" placeholder="Email" required />
+      <input type="password" id="regPassword" name="password" placeholder="Password" required />
+      <input type="password" id="regConfirmPassword" name="confirm_password" placeholder="Confirm Password" required />
+      <input type="tel" id="regContact" name="contact" placeholder="Contact Number" pattern="[0-9]{10}" required />
       <!-- google recaptcha -->
       <div class="g-recaptcha" data-sitekey="6LcDFEMrAAAAADsZX9mnCcGPnr1O9-3hjgfu6Paq" style="padding: 20px;"></div>
       <button type="submit" class="register-btn">Register</button>
@@ -144,8 +145,13 @@
     const loginForm = document.getElementById('login-form');
     const registerForm = document.getElementById('register-form');
     const choiceButtons = document.getElementById('choice-buttons');
+    const loginRoleField = document.getElementById('loginRoleField');
 
-    function showLoginForm() {
+    let loginRole = '';
+
+    function showLoginForm(role) {
+      loginRole = role;
+      loginRoleField.value = loginRole;
       choiceButtons.style.display = 'none';
       loginForm.style.display = 'flex';
       registerForm.style.display = 'none';
@@ -161,6 +167,16 @@
       loginForm.style.display = 'none';
       registerForm.style.display = 'none';
       choiceButtons.style.display = 'flex';
+    }
+
+    function validateRegisterForm() {
+      const password = document.getElementById('regPassword').value;
+      const confirmPassword = document.getElementById('regConfirmPassword').value;
+      if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return false;
+      }
+      return true;
     }
   </script>
 </body>
