@@ -8,6 +8,7 @@ body {
   padding: 0;
   font-family: 'Poppins', sans-serif;
   background-color: #ffffff;
+  line-height: 1.6;
 }
 
 /* Navigation Styles */
@@ -54,10 +55,18 @@ body {
     .hero-section {
       background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
       background-size: cover;
+      background-repeat: no-repeat;
       background-position: center;
-      padding: 150px 0;
+      padding: 120px 0;
       color: white;
+      text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
     }
+    
+
 
 /* Card Styles */
 .card, .news-card {
@@ -101,7 +110,12 @@ body {
   background-color: white;
   color: #2f4f2f;
 }
-
+/* about section */
+.about-section{
+  text-align: center;
+  margin-bottom: 30px;
+}
+/* main conetent */
 
 /* Footer Styles */
 .site-footer {
@@ -115,7 +129,7 @@ body {
 }
 
 .site-footer a:hover {
-  text-decoration: underline;
+  color:coral !important;
 }
 
 /* Back-to-top Button */
@@ -153,5 +167,19 @@ body {
   .login-wrapper {
     justify-content: center;
     margin: 20px;
+  }
+}
+@media (max-width: 575.98px) {
+  .hero-section {
+    padding: 80px 20px;
+    text-align: center;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1rem;
+  }
+
+  .login-wrapper {
+    font-size: 1rem;
   }
 }
