@@ -56,7 +56,7 @@
       <div class="navbar-nav mx-auto gap-lg-3">
         <a class="nav-link px-3" href="#product-details">Product Details</a>
         <a class="nav-link px-3" href="#newsroom-section">News Room</a>
-        <a class="nav-link px-3" href="https://forms.gle/FNU16sY7u1wUbH4d9" target="_blank" rel="noopener noreferrer">Careers</a>
+        <a class="nav-link px-3" href="#careers">Careers</a>
         <a class="nav-link px-3" href="#about-section">About Us</a>
         <a class="nav-link px-3" href="#contact-us">Contact Us</a>
       </div>
@@ -69,6 +69,25 @@
     </div>
   </div>
 </nav>
+
+<!-- Internship Bot Button -->
+<div id="internship-bot-button">🎓</div>
+
+<!-- Popup Box -->
+<div id="internship-popup">
+  <div class="popup-header">
+    Internship Opportunities
+    <span class="popup-close">&times;</span>
+  </div>
+  <div class="popup-body d-flex flex-column justify-content-center align-items-center text-center p-3 bg-light">
+    <div class="news-icon text-primary mb-2">
+      <i class="fas fa-user-graduate fa-2x"></i>
+    </div>
+    <p class="mb-2">🚀 We're Hiring Interns! Step into your future with us!</p>
+    <a href="./internships.html" class="btn btn-primary mt-2">Explore Now</a>
+  </div>
+</div>
+
 
 <!-- Hero Section -->
 <section class="hero-section">
@@ -127,10 +146,11 @@
 <section class="newsroom-section py-5" id="newsroom-section">
   <div class="container">
     <div class="text-center mb-5" data-aos="zoom-in">
-      <h2 class="mb-3">News Room</h2>
+      <h2 class="mb-3 my-4" style="color:darkturquoise;">News Room</h2>
       <p class="text-muted mb-0">Stay updated with our latest announcements, hiring updates, and career opportunities.</p>
     </div>
-
+    <h1 style="text-align: center; color: indianred;" id="careers" data-aos="zoom-in">Career at DRY PANDA</h1>
+    <marquee behavior="scroll" direction="" style="color:hotpink; font-size: x-large;">Explore career opportunities at DRY PANDA</marquee>
     <div class="row g-4 justify-content-center">
       <!-- Hiring Card -->
       <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
@@ -138,14 +158,14 @@
           <div class="news-icon text-success">
             <i class="fas fa-user-plus fa-2x"></i>
           </div>
-          <h3 class="news-title">We're Hiring Full-time and Part-time!</h3>
+          <h3 class="news-title">We're Hiring <br> Full-time and Part-time <br> Employees</h3>
           <div class="news-badge bg-success">💥Coming Soon 💥</div>
           <p class="news-desc">Exciting career opportunities will be available shortly</p>
         </div>
       </div>
 
       <!-- Internships Card -->
-      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
         <div class="news-card">
           <div class="news-icon text-primary">
             <i class="fas fa-user-graduate fa-2x"></i>
@@ -154,13 +174,13 @@
           <div class="news-badge bg-primary">Multiple Roles</div>
           <p class="news-desc">Gain valuable experience with our internship program</p>
           <a href="./internships.html" class="news-btn btn-primary">
-            Apply Now <i class="fas fa-arrow-right ms-2"></i>
+            Explore Now <i class="fas fa-arrow-right ms-2"></i>
           </a>
         </div>
       </div>
 
       <!-- New Office Card -->
-      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+      <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
         <div class="news-card">
           <div class="news-icon text-warning">
             <i class="fas fa-building fa-2x"></i>
@@ -275,6 +295,19 @@ window.addEventListener('scroll', () => {
     backToTop.classList.remove('show');
   }
 });
+
+  const btn = document.getElementById('internship-bot-button');
+  const popup = document.getElementById('internship-popup');
+  const closeBtn = document.querySelector('.popup-close');
+
+  btn.onclick = () => {
+    popup.style.display = 'block';
+  };
+
+  closeBtn.onclick = () => {
+    popup.style.display = 'none';
+  };
+
 
 </script>
 
