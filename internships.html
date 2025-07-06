@@ -23,7 +23,7 @@
     #marquee{
       font-size: larger;
       font-style: italic; 
-      color:cornflowerblue;     
+      color:red;     
     }
 
     h2 {
@@ -77,6 +77,17 @@
       background-color: #2f4f2f;
       color: white;
     }
+    span{
+      font-size: small;
+      color: red;
+    }
+    #feedback {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      padding: 40px 20px;
+    }
+
 
     @media (max-width: 576px) {
       .slide {
@@ -87,9 +98,9 @@
 </head>
 <body>
   <div class="container text-center mt-3">
-    <marquee behaviour="scroll" id="marquee">The latest internship opportunities across various domains</marquee>
-    <h2 class="mb-3">📣 Internship Opportunities</h2>
-    <p class="text-muted">Explore exciting unpaid internships at Dry Pandas and apply to grow your skills!</p>
+    <marquee behaviour="scroll" id="marquee">⭐Your Internship journey begins here - we're hiring!⭐</marquee>
+    <h2 class="mb-3" style="color: rgb(125, 60, 153);">📣 Internship Opportunities</h2>
+    <p style="color:darkturquoise;">Explore exciting unpaid internships at Dry Pandas and apply to grow your skills!</p>
   </div>
 
   <!-- Internship Cards -->
@@ -98,8 +109,8 @@
       <div class="slide" data-aos="fade-up" data-aos-delay="200">
         <div class="news-card p-4 w-100">
           <i class="fas fa-clipboard-list fa-2x text-primary mb-3"></i>
-          <h5>Market Survey Intern (IP-01)</h5>
-          <p>Conduct surveys, analyze market trends, and assist with competitor research.</p>
+          <h5>Market Survey <br> (<span>Intern</span>:IP-01)</h5>
+          <p class="text-primary">Conduct surveys, analyze market trends, and assist with competitor research.</p>
           <button class="btn btn-outline-primary read-btn"
             data-title="Market Survey Intern (IP-01)"
             data-content-id="intern-ip01"
@@ -114,8 +125,8 @@
        <div class="slide" data-aos="fade-up" data-aos-delay="300">
         <div class="news-card p-4 w-100">
           <i class="fas fa-bullhorn fa-2x text-warning mb-3"></i>
-          <h5>Digital Marketing Intern (IP-02)</h5>
-          <p>Create content, manage social media, and support digital campaigns.</p>
+          <h5>Digital Marketing <br> (<span>Intern</span>:IP-02)</h5>
+          <p class="text-warning">Create content, manage social media, and support digital campaigns.</p>
           <button class="btn btn-outline-warning read-btn"
             data-title="Digital Marketing Intern (IP-02)"
             data-content-id="intern-ip02"
@@ -130,8 +141,8 @@
        <div class="slide" data-aos="fade-up" data-aos-delay="400">
           <div class="news-card p-4 w-100">
             <i class="fas fa-seedling fa-2x text-success mb-3"></i>
-            <h5>Drying Process Research Intern (IP-03)</h5>
-            <p>Assist in drying experiments, analyze results, and review solar drying tech.</p>
+            <h5>Drying Process Research <br> (<span>Intern</span>:IP-03)</h5>
+            <p class="text-sucess">Assist in drying experiments, analyze results, and review solar drying tech.</p>
             <button class="btn btn-outline-success read-btn"
               data-title="Drying Process Research Intern (IP-03)"
               data-content-id="intern-ip03"
@@ -147,8 +158,8 @@
         <div class="slide" data-aos="fade-up" data-aos-delay="500">
           <div class="news-card p-4 w-100">
             <i class="fas fa-cogs fa-2x text-secondary mb-3"></i>
-            <h5>Product Development Intern (IP-04)</h5>
-            <p>Support design, testing, and improvements for products and machines.</p>
+            <h5>Product Development <br> (<span>Intern</span>:IP-04)</h5>
+            <p class="text-secondary">Support design, testing, and improvements for products and machines.</p>
             <button class="btn btn-outline-secondary read-btn"
               data-title="Product Development Intern (IP-04)"
               data-content-id="intern-ip04"
@@ -164,8 +175,8 @@
          <div class="slide" data-aos="fade-up" data-aos-delay="600">
             <div class="news-card p-4 w-100">
               <i class="fas fa-pen-nib fa-2x text-info mb-3"></i>
-              <h5>Technical Writing Intern (IP-05)</h5>
-              <p>Create manuals and documents that simplify technical information.</p>
+              <h5>Technical Writing <br> (<span>Intern</span>:IP-05)</h5>
+              <p class="text-info">Create manuals and documents that simplify technical information.</p>
               <button class="btn btn-outline-info read-btn"
                 data-title="Technical Writing Intern (IP-05)"
                 data-content-id="intern-ip05"
@@ -181,8 +192,8 @@
          <div class="slide" data-aos="fade-up" data-aos-delay="700">
             <div class="news-card p-4 w-100">
               <i class="fas fa-truck fa-2x text-danger mb-3"></i>
-              <h5>Accounting & Logistics Intern (IP-06)</h5>
-              <p>Help manage finances, inventory, and logistics operations.</p>
+              <h5>Accounting & Logistics <br> (<span>Intern</span>:IP-06)</h5>
+              <p class="text-danger">Help manage finances, inventory, and logistics operations.</p>
               <button class="btn btn-outline-danger read-btn"
                 data-title="Accounting & Logistics Intern (IP-06)"
                 data-content-id="intern-ip06"
@@ -194,7 +205,43 @@
           </div>
     </section>
 
+<!-- Feedback Section -->
+<section class="container mt-5 mb-5" id="feedback">
+  <h3 class="text-center text-success mb-4">📬 We value your feedback!</h3>
+  <form class="row g-3" action="https://formspree.io/f/your_form_id" method="POST">
+    <div class="col-md-4">
+      <label for="name" class="form-label">Your Name</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+    </div>
+    <div class="col-md-4">
+      <label for="phone" class="form-label">Phone Number</label>
+      <input type="tel" class="form-control" id="phone" name="phone" placeholder="e.g +91 9876543210" pattern="[\+0-9\s\-]+" required>
+    </div>
+    <div class="col-md-4">
+      <label for="email" class="form-label">Your Email</label>
+      <input type="email" class="form-control" id="email" name="_replyto" placeholder="Enter your email" required>
+    </div>
+    <div class="col-12">
+      <label for="feedbackMsg" class="form-label">Your Feedback</label>
+      <textarea class="form-control" id="feedbackMsg" name="message" rows="4" placeholder="Share your thoughts..." required></textarea>
+    </div>
+    <div class="col-12 text-center">
+      <button type="submit" class="btn btn-success px-4">Submit Feedback</button>
+    </div>
+  </form>
+</section>
 
+<footer class="bg-black pb-4 text-white">
+    <div class="text-center mt-4 mb-4">
+    <a href="./index.html" class="btn btn-outline-secondary">
+      <i class="fas fa-arrow-left me-2"></i> Back to Homepage
+    </a>
+  </div>
+
+  <div class="text-center small">
+      &copy; 2025 <strong>Dry Pandas</strong>. All rights reserved.
+    </div>
+</footer>
 
   <!-- Modal -->
   <div class="modal fade" id="newsModal" tabindex="-1" aria-labelledby="newsModalLabel" aria-hidden="true">
