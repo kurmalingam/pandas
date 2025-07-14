@@ -13,10 +13,11 @@ body {
 
 /* ===== NAVBAR STYLES ===== */
 .navbar {
-  background: linear-gradient(300deg, #6b8e23, #3e6638, #2f4f2f);
+  /* background: linear-gradient(300deg, #6b8e23, #3e6638, #2f4f2f); */
+  background: linear-gradient(300deg, #5a7a1d, #3a5e34, #2a4a2a);
   text-align: center;
   padding: 0.8rem 1rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
 }
 
@@ -47,8 +48,8 @@ body {
 
 .navbar-nav .nav-link:hover,
 .navbar-nav .nav-link:focus {
-  color:gold;
-  transform: translateY(-2px);
+  color: #ffd700; 
+  transform: translateY(-3px);
 }
 
 .navbar-nav .nav-link::after {
@@ -69,8 +70,9 @@ body {
 
 /* Active link styling */
 .navbar-nav .nav-item.active .nav-link {
-  color: #fff;
-  font-weight: 600;
+  color: #ffd700;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+  /* font-weight: 600; */
 }
 
 .navbar-nav .nav-item.active .nav-link::after {
@@ -102,7 +104,6 @@ body {
     width: 100%;
     padding: 1rem 0;
   }
-
   .navbar-nav {
     width: 100%;
     padding: 0.5rem 0;
@@ -110,7 +111,7 @@ body {
   }
 
   .nav-link {
-    padding: 0.75rem 1.5rem !important;
+    padding: 1rem 1.5rem !important;
     font-size: 1rem;
     border-radius: 0.25rem;
     margin: 0.15rem 0;
@@ -141,7 +142,7 @@ body {
   }
 
   /* Special cases for very small devices */
-  @media (max-width: 375px) {
+  @media (max-width: 576px) {
     .navbar-brand h4 {
       font-size: 0.9rem;
     }
@@ -153,26 +154,76 @@ body {
 }
 
 
-/* contact us */
-.bi {
-  color: #0d6efd; /* Match Bootstrap primary color */
+/* Contact Modal Styles */
+#contactModal .modal-header {
+  background: linear-gradient(300deg, #6b8e23, #3e6638, #2f4f2f);
+  border-bottom: none;
 }
 
-/* Optional: Add slight animation */
-.modal-content {
-  transition: transform 0.2s ease;
+#contactModal .modal-content {
+  border: none;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+  transform: translateY(20px);
+  transition: transform 0.3s ease-out, opacity 0.3s ease;
 }
 
-/* Optional: Better mobile spacing */
+#contactModal.show .modal-content {
+  transform: translateY(0);
+}
+
+#contactModal .contact-info {
+  border-left: 4px solid #6b8e23;
+}
+
+#contactModal .text-dark-green {
+  color: #2f4f2f;
+}
+
+#contactModal .btn-dark-green {
+  background-color: #2f4f2f;
+  color: white;
+  border: none;
+  transition: all 0.3s;
+}
+
+#contactModal .btn-dark-green:hover {
+  background-color: #3e6638;
+  transform: translateY(-2px);
+}
+
+#contactModal .form-control:focus,
+#contactModal .input-group-text {
+  border-color: #6b8e23;
+  box-shadow: 0 0 0 0.25rem rgba(107, 142, 35, 0.25);
+}
+
+#contactModal .bi {
+  font-size: 1.1rem;
+  min-width: 24px;
+}
+
+/* Mobile Optimization */
 @media (max-width: 576px) {
-  .modal-dialog {
-    margin: 0.5rem auto;
+  #contactModal .modal-dialog {
+    margin: 0.5rem;
+    max-width: calc(100% - 1rem);
+  }
+  
+  #contactModal .d-flex.gap-2 {
+    flex-direction: column;
+    gap: 0.5rem !important;
+  }
+  
+  #contactModal .btn {
+    width: 100%;
   }
 }
 
 
 
-/* pop up button */
+/* internship pop up button */
 #internship-bot-button {
   position: fixed;
   right: 20px;
@@ -226,47 +277,130 @@ body {
 }
 
 
-/* hero section */
+
+
+/* Hero Carousel Styles */
+#heroCarousel {
+  position: relative;
+  overflow: hidden;
+}
+
 .carousel-inner {
-    height: 100vh;
-    /* padding-top: 75px; */
-    object-fit:cover;
+  height: 100vh;
+  max-height: 1200px;
 }
 
 .carousel-item {
-    height: 100%;
+  height: 100%;
+  transition: transform 1s ease, opacity .5s ease-out;
 }
 
 .carousel-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;       
-    object-position: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
-/* Extra Small Devices (Phones) */
+.carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+}
+
+.carousel-indicators button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 6px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: all 0.3s ease;
+}
+
+.carousel-indicators button.active {
+  background-color: #fff;
+  transform: scale(1.2);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 8%;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+  margin: 50px;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 1;
+}
+
+/* Fixed Tagline Overlay */
+.fixed-overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  text-align: center;
+  color: #fff;
+  padding: 0 1rem;
+}
+
+.fixed-tagline {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  width:max-content;
+  line-height:50px;
+  color:#b46a0a;
+}
+
+@media (max-width: 768px) {
+  .fixed-tagline {
+    font-size: 2rem;
+    line-height:30px;
+
+  }
+}
+
 @media (max-width: 576px) {
-    .carousel-inner {
-        height: 400px;
-    }
-    .arrow {
-      display: none;
-    }
+  .fixed-tagline {
+    font-size: 1.5rem;
+    line-height:30px;
+
+  }
 }
 
-/* Scroll indicator styles */
+/* Scroll Indicator */
 .scroll-indicator {
   position: absolute;
-  bottom: 40px;
+  bottom: 30px;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 100;
   text-align: center;
-  z-index: 10;
+}
+
+.scroll-link {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .arrow {
   font-size: 2.5rem;
   animation: bounce 2s infinite;
+  opacity: 0.8;
+  transition: all 0.3s;
 }
 
 @keyframes bounce {
@@ -274,22 +408,30 @@ body {
     transform: translateY(0);
   }
   40% {
-    transform: translateY(-20px);
+    transform: translateY(-15px);
   }
   60% {
-    transform: translateY(-10px);
+    transform: translateY(-7px);
   }
 }
 
-/* Make sure carousel is relative positioned */
-#heroCarousel {
-  position: relative;
+.scroll-link:hover .arrow {
+  opacity: 1;
+  transform: translateY(5px);
 }
 
 
 
-/* Modern Product Card Styles */
+/* Remove slide captions */
+.carousel-caption {
+  display: none;
+}
 
+
+
+
+
+/* Enhanced Original Product Card Styles */
 .section-header h2 {
   color: #2f4f2f;
   position: relative;
@@ -316,14 +458,14 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  box-shadow: 0 5px 15px rgba(46, 125, 50, 0.08);
-  border: 1px solid rgba(46, 125, 50, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(46, 125, 50, 0.1);
+  border: 1px solid rgba(46, 125, 50, 0.15);
 }
 
 .product-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(46, 125, 50, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.15);
 }
 
 .product-icon {
@@ -341,6 +483,11 @@ body {
 .product-icon img {
   max-height: 80px;
   width: auto;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-icon img {
+  transform: scale(1.05);
 }
 
 .product-card h3 {
@@ -369,8 +516,7 @@ body {
 
 .product-cta:hover {
   background: #3e8e41;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+  box-shadow: 0 3px 10px rgba(46, 125, 50, 0.3);
 }
 
 .product-cta i {
@@ -395,12 +541,19 @@ body {
   }
 }
 
-/* ===== NEWSROOM SECTION ===== */
-.newsroom-section {
-  background-color: #f8fafc;
-  position: relative;
-  overflow: hidden;
+@media (max-width: 575.98px) {
+  .section-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .product-card {
+    padding: 20px;
+  }
 }
+
+
+
+
 
 /* News Cards */
 .news-card {
