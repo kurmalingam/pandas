@@ -7,7 +7,6 @@
   <meta name="description" content="Dry Pandas - Revolutionizing solar-powered food drying with sustainable technology for farmers and food industries.">
   <meta name="keywords" content="solar dryer, food preservation, agriculture technology, dry food, Dry Pandas, internships, career, India">
   <meta name="author" content="Dry Pandas">
-  <meta name="theme-color" content="#2f4f2f">
 
   <title>Dry Pandas</title>
 
@@ -59,7 +58,9 @@
         <a class="nav-link px-3 active" href="#newsroom-section" aria-current="page">News Room</a>
         <a class="nav-link px-3 active" href="#careers" aria-current="page">Careers</a>
         <a class="nav-link px-3 active" href="#about-section" aria-current="page">About Us</a>
-        <a class="nav-link px-3 active" href="#" data-bs-toggle="modal" data-bs-target="#contactModal" aria-current="page">Contact Us</a>
+        <a class="nav-link px-2" data-bs-toggle="modal" data-bs-target="#contactModal">Contact Us
+          <!-- <span class="d-none d-lg-inline">Contact Us</span> -->
+        </a>     
       </div>
       
       <div class="login-wapper d-flex ps-lg-3">
@@ -71,85 +72,76 @@
   </div>
 </nav>
 
-<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+
+<!-- contact us -->
+<div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header bg-dark-green text-white">
-        <h5 class="modal-title" id="contactModalLabel">Contact DRY PANDA Natural Products</h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <!-- Contact Info Section -->
-        <div class="contact-info mb-4 p-3 bg-light rounded">
-          <div class="d-flex align-items-center mb-2">
-            <i class="bi bi-person-fill me-2 text-dark-green"></i>
-            <div>
-              <strong>Contact:</strong> 
-              <span class="d-block">1k.patel</span>
+    <div class="modal-content border-0">
+      <div class="modal-header bg-dark-green text-white d-flex justify-content-between align-items-center py-2 px-3">
+  <h5 class="modal-title fs-6 mb-0">Contact Dry Pandas</h5>
+  <button type="button" class="btn-close btn-close-white m-0 p-1" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+      <div class="modal-body p-0">
+        <div class="container-fluid">
+          <!-- Stack vertically on small screens -->
+          <div class="row g-0 flex-column flex-lg-row">
+            <!-- Contact Info Section -->
+            <div class="col-12 col-lg-6 contact-info-section p-3">
+              <h6 class="text-dark-green mb-2"><i class="bi bi-info-circle-fill me-1"></i>Our Info</h6>
+              
+              <div class="contact-item bg-light-green p-2 rounded mb-2">
+                <i class="bi bi-telephone-fill text-dark-green fs-6"></i>
+                <span class="fs-6">+91 98765 43210</span>
+              </div>
+              
+              <div class="contact-item bg-light-green p-2 rounded mb-2">
+                <i class="bi bi-envelope-fill text-dark-green fs-6"></i>
+                <span class="fs-6">drypanda@gmail.com</span>
+              </div>
+              
+              <div class="contact-item bg-light-green p-2 rounded mb-2">
+                <i class="bi bi-geo-alt-fill text-dark-green fs-6"></i>
+                <span class="fs-6">Visakhapatnam, AP</span>
+              </div>
+              
+              <div class="map-container mt-2 rounded overflow-hidden border border-light-green">
+                <iframe src="https://maps.google.com/maps?q=Visakhapatnam&output=embed" 
+                        loading="lazy"
+                        class="w-100"
+                        height="120"
+                        style="border:0;"></iframe>
+              </div>
             </div>
-          </div>
-          <div class="d-flex align-items-center mb-2">
-            <i class="bi bi-geo-alt-fill me-2 text-dark-green"></i>
-            <div>
-              <strong>Address:</strong> 
-              <span class="d-block">VISAKHAPATNAM, AP - 530098</span>
-            </div>
-          </div>
-          <div class="d-flex align-items-center mb-2">
-            <i class="bi bi-telephone-fill me-2 text-dark-green"></i>
-            <div>
-              <strong>Call:</strong> 
-              <a href="tel:08037890382" class="d-block text-decoration-none">08037890382</a>
-            </div>
-          </div>
-          <div class="d-flex align-items-center">
-            <i class="bi bi-globe me-2 text-dark-green"></i>
-            <div>
-              <strong>Website:</strong> 
-              <a href="https://www.khushi.net/products.in" target="_blank" class="d-block text-decoration-none">khushi.net</a>
+            
+            <!-- Contact Form Section -->
+            <div class="col-12 col-lg-6 p-3">
+              <h6 class="text-dark-green mb-2"><i class="bi bi-send-fill me-1"></i>Send Message</h6>
+              <form>
+                <div class="mb-2">
+                  <input type="text" class="form-control form-control-sm border-light-green" placeholder="Your Name" required>
+                </div>
+                <div class="mb-2">
+                  <input type="tel" class="form-control form-control-sm border-light-green" placeholder="Mobile Number" required>
+                </div>
+                <div class="mb-2">
+                  <input type="email" class="form-control form-control-sm border-light-green" placeholder="Email" required>
+                </div>
+                <div class="mb-2">
+                  <textarea class="form-control form-control-sm border-light-green" rows="2" placeholder="Message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-dark-green btn-sm w-100 py-1 mt-1 fs-6">
+                  <i class="bi bi-send-fill me-1"></i>Send
+                </button>
+              </form>
             </div>
           </div>
         </div>
-
-        
-        <!-- Contact Form -->
-        <form id="contactForm" novalidate>
-          <div class="mb-3">
-            <label for="userName" class="form-label">Your Name *</label>
-            <input type="text" class="form-control" id="userName" placeholder="John Doe" required>
-            <div class="invalid-feedback">Please provide your name</div>
-          </div>
-          <div class="mb-3">
-            <label for="userEmail" class="form-label">Email *</label>
-            <input type="email" class="form-control" id="userEmail" placeholder="example@domain.com" required>
-            <div class="invalid-feedback">Please provide a valid email</div>
-          </div>
-          <div class="mb-3">
-            <label for="userPhone" class="form-label">Mobile *</label>
-            <div class="input-group">
-              <span class="input-group-text">+91</span>
-              <input type="tel" class="form-control" id="userPhone" placeholder="9876543210" required>
-              <div class="invalid-feedback">Please provide a valid phone number</div>
-            </div>
-          </div>
-          <div class="mb-3">
-            <label for="userMessage" class="form-label">Your Requirement *</label>
-            <textarea class="form-control" id="userMessage" rows="3" placeholder="Tell us about your requirements..." required></textarea>
-            <div class="invalid-feedback">Please enter your requirements</div>
-          </div>
-          <div class="d-flex gap-2">
-            <button type="submit" class="btn btn-dark-green flex-grow-1 py-2">
-              <i class="bi bi-send-fill me-2"></i>Submit
-            </button>
-            <button type="button" class="btn btn-outline-secondary py-2" data-bs-dismiss="modal">
-              <i class="bi bi-x-lg me-2"></i>Cancel
-            </button>
-          </div>
-        </form>
       </div>
     </div>
   </div>
 </div>
+
+
 
 
 <!-- Internship Bot Button -->
@@ -172,66 +164,40 @@
 
 
 
-<!-- Hero Section Carousel -->
-<div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
-   <div class="fixed-overlay-content">
-    <h1 class="fixed-tagline">Solar-Powered Goodness <br> From Our Hands to Yours <br>Scroll Down to Know More</h1>
-  </div>
-
-  <!-- Indicators -->
-  <div class="carousel-indicators">
-    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
-    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
-    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
-    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3"></button>
-    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="4"></button>
-  </div>
-
-  <!-- Slides with Overlay -->
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <div class="carousel-overlay"></div>
-      <img src="./hero-section/1.png" class="d-block w-100" alt="Slide 1" loading="lazy">
+<!-- hero section -->
+  <div class="main-container">
+    
+    <!-- Auto-Scrolling Image Gallery -->
+    <div class="scroll-hero-wrapper">
+      <div class="fixed-overlay-content">
+        <h1 class="fixed-tagline">Solar-Powered Goodness <br> From Our Hands to Yours <br>Scroll Down to Know More</h1>
+      </div>
+      
+      <div class="scroll-wrapper">
+        <div class="scroll-content">
+          <img src="./hero-section/1.png" alt="Solar Drying Process" loading="lazy">
+          <img src="./hero-section/2.png" alt="Fresh to Dried Transformation" loading="lazy">
+          <img src="./hero-section/3.png" alt="Solar Dryer Technology" loading="lazy">
+          <img src="./hero-section/4.png" alt="Sustainable Food Preservation" loading="lazy">
+          <img src="./hero-section/5.png" alt="Dry Panda Products" loading="lazy">
+          
+        </div>
+      </div>
+    </div>
+    <!-- Static Product Images -->
+    <div class="product-images">
+      <img src="./hero-section/1.png" alt="Home Solar Dryer">
+      <img src="./hero-section/2.png" alt="Pro Solar Dryer">
+      <img src="./hero-section/3.png" alt="Farm Solar Dryer">
+      <img src="./hero-section/4.png" alt="Dried Fruits">
+      <img src="./hero-section/5.png" alt="Dried Vegetables">
+      <img src="./hero-section/1.png" alt="Dried Spices">
     </div>
     
-    <div class="carousel-item">
-      <div class="carousel-overlay"></div>
-      <img src="./hero-section/2.png" class="d-block w-100" alt="Slide 2" loading="lazy">
-    </div>
-    
-    <div class="carousel-item">
-      <div class="carousel-overlay"></div>
-      <img src="./hero-section/3.png" class="d-block w-100" alt="Slide 3" loading="lazy">
-    </div>
-
-    <div class="carousel-item">
-      <div class="carousel-overlay"></div>
-      <img src="./hero-section/4.png" class="d-block w-100" alt="Slide 4" loading="lazy">
-    </div>
-
-    <div class="carousel-item">
-      <div class="carousel-overlay"></div>
-      <img src="./hero-section/5.png" class="d-block w-100" alt="Slide 5" loading="lazy">
-    </div>
   </div>
-</div>
 
-  <!-- Navigation Controls -->
-  <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
 
-  <!-- Scroll Indicator -->
-<div class="scroll-indicator">
-  <a href="#nextSection" class="scroll-link">
-    <span class="arrow">&#x25BC;</span>
-  </a>
-</div>
+
 
 
 
@@ -412,7 +378,9 @@
 <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
   <i class="bi bi-arrow-up"></i>
 </a>
-
+  
+</body>
+</html>
 
 
 <!-- JS Scripts -->
@@ -420,7 +388,7 @@
 <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
 <script>
- AOS.init();
+    AOS.init();
 
 
 window.addEventListener('scroll', () => {
