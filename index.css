@@ -305,7 +305,7 @@ body {
 }
 
 
-/* internship pop up button */
+/* Floating 🎓 Button */
 #internship-bot-button {
   position: fixed;
   right: 20px;
@@ -319,21 +319,24 @@ body {
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   z-index: 1001;
+  display: none; /* hidden initially, shown after closing popup */
 }
 
+/* Popup Box */
 #internship-popup {
   position: fixed;
   top: calc(50% + 40px);
   right: 60px;
   width: 300px;
   background: white;
-  border-radius: 10px; /* FIXED: Was wrongly set to 50% */
+  border-radius: 10px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-  display: none;
+  display: none; /* shown on load via JS */
   z-index: 1000;
   font-family: 'Poppins', sans-serif;
 }
 
+/* Popup Header */
 .popup-header {
   background: rgba(47, 79, 47, 0.95);
   color: white;
@@ -346,12 +349,14 @@ body {
   align-items: center;
 }
 
+/* Close Button */
 .popup-close {
   cursor: pointer;
   font-size: 20px;
   line-height: 1;
 }
 
+/* Popup Body */
 .popup-body {
   padding: 16px;
   font-size: 14px;
@@ -361,92 +366,111 @@ body {
 
 
 
-.glitter-scroll-container {
-  width: 100%;
-  overflow: hidden;
-  margin-top: 80px;
-  padding: 10px 0;
-  position: relative;
-  z-index: 20;
-  background: white; /* Optional: ensure contrast */
+
+
+
+/* Static glitter section on white background */
+.glitter-static-section {
+  background: #fff;
+  color: #000;
+  padding: 45px 0 0 0;
+  text-align: center;
+  
 }
 
-.glitter-scroll-track {
+.glitter-static-section .text-container {
+  text-align: center;
+}
+
+.glitter-static-section .glitter-text span,
+.glitter-static-section .sub-glitter span {
+  display: inline-block;
+  animation: glitter 2s infinite, rotate 4s infinite ease-in-out;
+  transform-origin: center;
+}
+
+.glitter-static-section .glitter-text span {
+  font-size: 4.5em;
+  font-weight: bold;
+  color: #000;
+  animation-delay: calc(var(--i) * 0.1s);
+}
+
+.glitter-static-section .sub-glitter span {
+  font-size: 2.5em;
+  color: #ff9800;
+  animation-delay: calc(var(--i) * 0.1s + 1s);
+}
+
+/* Same glitter & rotate animation from #home */
+@keyframes glitter {
+  0%, 100% {
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #ffd700,
+      0 0 20px #ff0;
+  }
+  50% {
+    text-shadow:
+      0 0 2px #fff,
+      0 0 5px #ff0,
+      0 0 10px #ffcc00;
+  }
+}
+
+@keyframes rotate {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(10deg); }
+}
+
+
+/* Continuous Horizontal Image Scroll */
+.scroll-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+  background-color: #fff;
+  padding: 10px 0;
+  border-top: 2px solid #ccc;
+  border-bottom: 2px solid #ccc;
+  margin: 20px;
+  margin-bottom: 1px;
+  border-radius: 10px;
+  position: relative;
+
+}
+
+.scroll-content {
   display: inline-block;
   white-space: nowrap;
-  padding-left: 100%;
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: #000;
-  animation: glitter-scroll 10s linear infinite, gold-glitter 2s ease-in-out infinite alternate;
+  animation: scroll-continuous 40s linear infinite;
 }
 
-/* Scroll movement */
-@keyframes glitter-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
+.scroll-content img {
+  height: 300px;
+  margin: 0 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  vertical-align: middle;
 }
 
-/* Glittering effect via glowing shadows */
-@keyframes gold-glitter {
+/* Seamless continuous scroll with duplicated images */
+@keyframes scroll-continuous {
   0% {
-    text-shadow:
-      0 0 2px #fff5cc,
-      0 0 5px #ffdb4d,
-      0 0 10px #ffd700,
-      0 0 20px #ffc107;
-    color: #000;
+    transform: translateX(0%);
   }
   100% {
-    text-shadow:
-      0 0 3px #fffbe6,
-      0 0 8px #ffeb3b,
-      0 0 15px #ffcc00,
-      0 0 25px #ffb300;
-    color: #222;
+    transform: translateX(-50%);
   }
 }
 
-
-/* Base Container hero */
+/* Hero Section Container */
 .hero-container {
   max-width: 1400px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 20px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-/* Auto-scroll Banner */
-.hero-banner {
-  position: relative;
-  width: 100%;
-  height: 300px;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  margin-bottom: 30px;
-}
-
-.banner-track {
-  display: flex;
-  animation: scroll-left 30s linear infinite;
-  gap: 20px;
-}
-
-.banner-track img {
-  width: 50%;
-  margin: 10px;
-  height: 300px;
-  object-fit: cover;
-  flex-shrink: 0;
-  border-radius: 10px;
-}
-
-/* Scroll Animation */
-@keyframes scroll-left {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
-}
 /* Product Grid */
 .product-gallery {
   display: grid;
@@ -456,36 +480,39 @@ body {
 
 .product-gallery img {
   width: 100%;
-  height: 180px;
+  height: 150px;
   object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-  transition: 0.3s;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
   border: 1px solid #e0e0e0;
 }
 
 .product-gallery img:hover {
   transform: translateY(-4px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   border-color: #2e7d32;
 }
 
-/* Mobile Responsive */
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .scroll-content img {
+    height: 250px;
+  }
+
+  .product-gallery img {
+    height: 180px;
+  }
+}
+
 @media (max-width: 768px) {
-  .hero-banner {
-    height: 220px;
+  .glitter-scroll-track {
+    font-size: 1.1rem;
   }
 
-  .banner-track img {
-    height: 220px;
-  }
-
-  .banner-overlay h1 {
-    font-size: 1.8rem;
-  }
-
-  .banner-overlay p {
-    font-size: 1rem;
+  .scroll-content img {
+    height: 200px;
+    margin: 0 10px;
   }
 
   .product-gallery img {
@@ -494,31 +521,19 @@ body {
 }
 
 @media (max-width: 480px) {
-  .hero-banner {
-    height: 180px;
+  .glitter-scroll-track {
+    font-size: 1rem;
   }
 
-  .banner-track img {
-    height: 180px;
-  }
-
-  .banner-overlay h1 {
-    font-size: 1.3rem;
-  }
-
-  .banner-overlay p {
-    font-size: 0.9rem;
+  .scroll-content img {
+    height: 150px;
+    margin: 0 8px;
   }
 
   .product-gallery img {
-    height: 150px;
-    
+    height: 140px;
+  }
 }
-  
-}
-
-
-
 
 
 
