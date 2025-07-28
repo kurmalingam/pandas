@@ -21,6 +21,7 @@
       padding: 0;
     }
     #marquee{
+      margin-top: 70px;
       font-size: larger;
       font-style: italic; 
       color:red;     
@@ -81,12 +82,6 @@
       font-size: small;
       color: red;
     }
-    #feedback {
-      background-color: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      padding: 40px 20px;
-    }
 
 
     @media (max-width: 576px) {
@@ -94,9 +89,413 @@
         padding: 20px;
       }
     }
+
+
+
+
+    /* ===== NAVBAR STYLES ===== */
+.navbar {
+  /* background: linear-gradient(300deg, #6b8e23, #3e6638, #2f4f2f); */
+  background: linear-gradient(300deg, #5a7a1d, #3a5e34, #2a4a2a);
+  text-align: center;
+  padding: 0.8rem 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  padding: 0.5rem 1rem;
+  background: rgba(47, 79, 47, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  border: 1px solid whitesmoke;
+}
+
+.logo-img:hover {
+  transform: scale(1.05);
+}
+
+.navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  color: #ffd700; 
+  transform: translateY(-3px);
+}
+
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+  width: calc(100% - 2rem);
+  height: 2px;
+  background: #fff;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Active link styling */
+.navbar-nav .nav-item.active .nav-link {
+  color: #ffd700;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+}
+
+.navbar-nav .nav-item.active .nav-link::after {
+  transform: scaleX(1);
+}
+
+/* Login button styles */
+.navbar .btn-outline-light {
+  border-width: 2px;
+  transition: all 0.3s ease;
+}
+
+.navbar .btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Mobile Responsive Styles (All Devices) */
+@media (max-width: 991.98px) {
+  .navbar {
+    padding: 0.75rem 1rem;
+    align-items: flex-start;
+  }
+
+  .navbar-collapse {
+    background: rgba(47, 79, 47, 0.98);
+    margin-top: 0.75rem;
+    border-radius: 0.5rem;
+    width: 100%;
+    padding: 1rem 0;
+  }
+  .navbar-nav {
+    width: 100%;
+    padding: 0.5rem 0;
+    gap: 0.5rem;
+  }
+
+  .nav-link {
+    padding: 1rem 1.5rem !important;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    margin: 0.15rem 0;
+  }
+
+  .navbar-brand {
+    font-size: 1rem;
+    margin-right: auto;
+  }
+
+  .logo-img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .login-wapper { /* Changed to match your HTML */
+    width: 100%;
+    padding: 1rem 1.5rem 0;
+    margin: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+  }
+
+  .login-wapper .btn { /* Changed to match your HTML */
+    width: 60%;
+    justify-content: center;
+  }
+
+  /* Special cases for very small devices */
+  @media (max-width: 576px) {
+    .navbar-brand h4 {
+      font-size: 0.9rem;
+    }
+    .logo-img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+
+
+
+/* Color Variables */
+:root {
+  --dark-green: #2f4f2f;
+  --light-green: #e8f5e9;
+  --medium-green: #81c784;
+  --accent-green: #4caf50;
+}
+
+/* Color Classes */
+.bg-dark-green {
+  background-color: var(--dark-green) !important;
+}
+
+.bg-light-green {
+  background-color: var(--light-green) !important;
+}
+
+.text-dark-green {
+  color: var(--dark-green) !important;
+}
+
+.border-light-green {
+  border-color: var(--medium-green) !important;
+}
+
+.btn-dark-green {
+  background-color: var(--dark-green);
+  color: white;
+  border: none;
+}
+
+.btn-dark-green:hover {
+  background-color: #1e3e1e;
+  color: white;
+}
+
+
+
+/* Contact Modal Specific Styles */
+.contact-info-section {
+  background-color: #f8f9fa;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.contact-item i {
+  font-size: 1.0rem;
+}
+
+.map-container {
+  transition: all 0.3s ease;
+}
+
+.map-container:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Mobile-first responsive adjustments */
+@media (max-width: 768px) {
+  #contactModal .modal-dialog {
+    margin: 0.5rem auto;
+    max-width: 95%;
+  }
+  
+  #contactModal .modal-header,
+  #contactModal .modal-body {
+    padding: 0.5rem;
+  }
+  
+  #contactModal .contact-item {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  #contactModal .contact-item i {
+    font-size: 1rem;
+  }
+  
+  #contactModal .map-container {
+    height: 100px;
+  }
+  
+  #contactModal iframe {
+    height: 100px;
+  }
+  
+  #contactModal .form-control,
+  #contactModal .btn {
+    font-size: 0.875rem;
+  }
+}
+/* Close button adjustments */
+#contactModal .btn-close {
+  filter: brightness(0) invert(1);
+  opacity: 1;
+  background-size: 0.75rem;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+#contactModal .btn-close:hover {
+  opacity: 0.75;
+}
+
+/* Mobile-specific header adjustments */
+@media (max-width: 768px) {
+  #contactModal .modal-header {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  #contactModal .modal-title {
+    font-size: 0.95rem;
+    padding-right: 0.5rem;
+  }
+  
+  #contactModal .btn-close {
+    background-size: 0.65rem;
+    width: 1.1rem;
+    height: 1.1rem;
+    margin-left: auto; /* Pushes it to the right */
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 768px) {
+  #contactModal .modal-dialog {
+    max-width: 85%;
+  }
+  
+  #contactModal .map-container {
+    height: 140px;
+  }
+  
+  #contactModal iframe {
+    height: 140px;
+  }
+}
+
+
+
   </style>
 </head>
 <body>
+  <!-- navbar section -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark-green">
+  <div class="container-fluid">
+    <a href="#" class="navbar-brand d-flex align-items-center">
+      <!-- <img src="./panda.png" alt="Dry Pandas Logo" class="logo-img me-2"> -->
+       <img src="./panda.png" alt="Dry Pandas Logo" class="logo-img img-fluid" />
+      <h4 class="m-0 brand-text">DRYPANDA-FOODS</h4>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <div class="navbar-nav mx-auto gap-lg-3">
+        <a class="nav-link px-3 active" href="#product-details" aria-current="page">Product Details</a>
+        <a class="nav-link px-3 active" href="#newsroom-section" aria-current="page">News Room</a>
+        <a class="nav-link px-3 active" href="#careers" aria-current="page">Careers</a>
+        <a class="nav-link px-3 active" href="#about-section" aria-current="page">About Us</a>
+        <a class="nav-link px-2" data-bs-toggle="modal" data-bs-target="#contactModal">Contact Us
+        </a>     
+      </div>
+      
+      <div class="login-wapper d-flex ps-lg-3">
+        <a href="./login.html" class="btn btn-outline-light px-3">
+          <i class="bi bi-person-fill me-2"></i>Login
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- contact us -->
+<div class="modal fade" id="contactModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0">
+      <div class="modal-header bg-dark-green text-white d-flex justify-content-between align-items-center py-2 px-3">
+  <h5 class="modal-title fs-6 mb-0">Contact DryPanda-foods</h5>
+  <button type="button" class="btn-close btn-close-white m-0 p-1" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+      <div class="modal-body p-0">
+        <div class="container-fluid">
+          <!-- Stack vertically on small screens -->
+          <div class="row g-0 flex-column flex-lg-row">
+            <!-- Contact Info Section -->
+            <div class="col-12 col-lg-7 contact-info-section p-2">
+              <h6 class="text-dark-green mb-2"><i class="bi bi-info-circle-fill me-1"></i>Our Info</h6>
+              
+              <div class="contact-item bg-light-green p-2 rounded mb-2">
+                <i class="bi bi-telephone-fill text-dark-green fs-6"></i>
+                <span class="fs-6">+91 7708509046 <br> +91 8220353966 </span>
+              </div>
+              
+              <div class="contact-item bg-light-green p-2 rounded mb-2">
+                <i class="bi bi-envelope-fill text-dark-green fs-6"></i>
+                <span class="fs-6">drypandafoods@gmail.com</span>
+              </div>
+              
+              <div class="contact-item bg-light-green p-2 rounded mb-2">
+                <i class="bi bi-geo-alt-fill text-dark-green fs-6"></i>
+                <span class="fs-6">Visakhapatnam, AP</span>
+              </div>
+              
+              <div class="map-container mt-2 rounded overflow-hidden border border-light-green">
+                <iframe src="https://maps.google.com/maps?q=Visakhapatnam&output=embed" 
+                        loading="lazy"
+                        class="w-100"
+                        height="120"
+                        style="border:0;"></iframe>
+              </div>
+            </div>
+            
+            <!-- Contact Form Section -->
+            <div class="col-12 col-lg-5 p-2">
+              <h6 class="text-dark-green mb-2"><i class="bi bi-send-fill me-1"></i>Send Message</h6>
+              <form>
+                <div class="mb-2">
+                  <input type="text" class="form-control form-control-sm border-light-green" placeholder="Your Name" required>
+                </div>
+                <div class="mb-2">
+                  <input type="tel" class="form-control form-control-sm border-light-green" placeholder="Mobile Number" required>
+                </div>
+                <div class="mb-2">
+                  <input type="email" class="form-control form-control-sm border-light-green" placeholder="Email" required>
+                </div>
+                <div class="mb-2">
+                  <textarea class="form-control form-control-sm border-light-green" rows="2" placeholder="Message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-dark-green btn-sm w-100 py-1 mt-1 fs-6">
+                  <i class="bi bi-send-fill me-1"></i>Send
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
   <div class="container text-center mt-3">
     <marquee behaviour="scroll" id="marquee">⭐Your Internship journey begins here - we're hiring!⭐</marquee>
     <h2 class="mb-3" style="color: rgb(125, 60, 153);">📣 Internship Opportunities</h2>
@@ -109,7 +508,7 @@
       <div class="slide" data-aos="fade-up" data-aos-delay="200">
         <div class="news-card p-4 w-100">
           <i class="fas fa-clipboard-list fa-2x text-primary mb-3"></i>
-          <h5>Market Survey <br> (<span>Intern</span>:IP-01)</h5>
+          <h5>Market Survey Intern<br> (<span>Intern-code</span>:IP-01)</h5>
           <p class="text-primary">Conduct surveys, analyze market trends, and assist with competitor research.</p>
           <button class="btn btn-outline-primary read-btn"
             data-title="Market Survey Intern (IP-01)"
@@ -125,7 +524,7 @@
        <div class="slide" data-aos="fade-up" data-aos-delay="300">
         <div class="news-card p-4 w-100">
           <i class="fas fa-bullhorn fa-2x text-warning mb-3"></i>
-          <h5>Digital Marketing <br> (<span>Intern</span>:IP-02)</h5>
+          <h5>Digital Marketing Intern<br> (<span>Intern-code</span>:IP-02)</h5>
           <p class="text-warning">Create content, manage social media, and support digital campaigns.</p>
           <button class="btn btn-outline-warning read-btn"
             data-title="Digital Marketing Intern (IP-02)"
@@ -141,7 +540,7 @@
        <div class="slide" data-aos="fade-up" data-aos-delay="400">
           <div class="news-card p-4 w-100">
             <i class="fas fa-seedling fa-2x text-success mb-3"></i>
-            <h5>Drying Process Research <br> (<span>Intern</span>:IP-03)</h5>
+            <h5>Drying Process Research Intern<br> (<span>Intern-code</span>:IP-03)</h5>
             <p class="text-sucess">Assist in drying experiments, analyze results, and review solar drying tech.</p>
             <button class="btn btn-outline-success read-btn"
               data-title="Drying Process Research Intern (IP-03)"
@@ -158,7 +557,7 @@
         <div class="slide" data-aos="fade-up" data-aos-delay="500">
           <div class="news-card p-4 w-100">
             <i class="fas fa-cogs fa-2x text-secondary mb-3"></i>
-            <h5>Product Development <br> (<span>Intern</span>:IP-04)</h5>
+            <h5>Product Development Intern<br> (<span>Intern-code</span>:IP-04)</h5>
             <p class="text-secondary">Support design, testing, and improvements for products and machines.</p>
             <button class="btn btn-outline-secondary read-btn"
               data-title="Product Development Intern (IP-04)"
@@ -175,7 +574,7 @@
          <div class="slide" data-aos="fade-up" data-aos-delay="600">
             <div class="news-card p-4 w-100">
               <i class="fas fa-pen-nib fa-2x text-info mb-3"></i>
-              <h5>Technical Writing <br> (<span>Intern</span>:IP-05)</h5>
+              <h5>Technical Writing Intern<br> (<span>Intern-code</span>:IP-05)</h5>
               <p class="text-info">Create manuals and documents that simplify technical information.</p>
               <button class="btn btn-outline-info read-btn"
                 data-title="Technical Writing Intern (IP-05)"
@@ -192,7 +591,7 @@
          <div class="slide" data-aos="fade-up" data-aos-delay="700">
             <div class="news-card p-4 w-100">
               <i class="fas fa-truck fa-2x text-danger mb-3"></i>
-              <h5>Accounting & Logistics <br> (<span>Intern</span>:IP-06)</h5>
+              <h5>Accounting & Logistics Intern<br> (<span>Intern-code</span>:IP-06)</h5>
               <p class="text-danger">Help manage finances, inventory, and logistics operations.</p>
               <button class="btn btn-outline-danger read-btn"
                 data-title="Accounting & Logistics Intern (IP-06)"
@@ -205,43 +604,16 @@
           </div>
     </section>
 
-<!-- Feedback Section -->
-<section class="container mt-5 mb-5" id="feedback">
-  <h3 class="text-center text-success mb-4">📬 We value your feedback!</h3>
-  <form class="row g-3" action="https://formspree.io/f/your_form_id" method="POST">
-    <div class="col-md-4">
-      <label for="name" class="form-label">Your Name</label>
-      <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
-    </div>
-    <div class="col-md-4">
-      <label for="phone" class="form-label">Phone Number</label>
-      <input type="tel" class="form-control" id="phone" name="phone" placeholder="e.g +91 9876543210" pattern="[\+0-9\s\-]+" required>
-    </div>
-    <div class="col-md-4">
-      <label for="email" class="form-label">Your Email</label>
-      <input type="email" class="form-control" id="email" name="_replyto" placeholder="Enter your email" required>
-    </div>
-    <div class="col-12">
-      <label for="feedbackMsg" class="form-label">Your Feedback</label>
-      <textarea class="form-control" id="feedbackMsg" name="message" rows="4" placeholder="Share your thoughts..." required></textarea>
-    </div>
-    <div class="col-12 text-center">
-      <button type="submit" class="btn btn-success px-4">Submit Feedback</button>
-    </div>
-  </form>
-</section>
 
-<footer class="bg-black pb-4 text-white">
-    <div class="text-center mt-4 mb-4">
-    <a href="./index.html" class="btn btn-outline-secondary">
-      <i class="fas fa-arrow-left me-2"></i> Back to Homepage
-    </a>
+
+<footer class="bg-success text-white text-center py-3">
+  <div class="small">
+    &copy; 2025 <strong>Dry Pandas</strong>. All rights reserved.
   </div>
-
-  <div class="text-center small">
-      &copy; 2025 <strong>Dry Pandas</strong>. All rights reserved.
-    </div>
 </footer>
+
+
+
 
   <!-- Modal -->
   <div class="modal fade" id="newsModal" tabindex="-1" aria-labelledby="newsModalLabel" aria-hidden="true">
