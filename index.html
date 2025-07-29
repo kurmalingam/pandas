@@ -134,11 +134,11 @@
               </form>
             </div> -->
             <!-- Contact Form Section -->
+            <!-- Contact Form Section -->
+<!-- Contact Form Section -->
 <div class="col-12 col-lg-5 p-2">
-  <h6 class="text-dark-green mb-2">
-    <i class="bi bi-send-fill me-1"></i>Send Message
-  </h6>
-  <form id="contactForm">
+  <h6 class="text-dark-green mb-2"><i class="bi bi-send-fill me-1"></i>Send Message</h6>
+  <form id="contact-form">
     <div class="mb-2">
       <input type="text" name="name" class="form-control form-control-sm border-light-green" placeholder="Your Name" required>
     </div>
@@ -156,7 +156,6 @@
     </button>
   </form>
 </div>
-          </div>
         </div>
       </div>
     </div>
@@ -166,12 +165,12 @@
 <!-- Script to handle form submission -->
 <script>
   const scriptURL = 'https://script.google.com/macros/s/AKfycbwfhbVoa1BpaSnbPi97XLYwj8P2Bbldvs4KUczOpUnqOZp498IFo_a3fdGm_1fd1KSOPQ/exec';
+  const form = document.getElementById('contact-form');
 
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
+  form.addEventListener('submit', e => {
     e.preventDefault();
 
-    const form = e.target;
-    const data = {
+    const formData = {
       name: form.name.value,
       phone: form.phone.value,
       email: form.email.value,
@@ -180,22 +179,21 @@
 
     fetch(scriptURL, {
       method: 'POST',
-      body: JSON.stringify(data),
-      headers: {
-        'Content-Type': 'application/json'
-      }
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
     })
-    .then(res => res.json())
-    .then(res => {
-      if (res.result === "Success") {
+    .then(response => response.json())
+    .then(result => {
+      if (result.result === "Success") {
         alert("✅ Message sent successfully!");
         form.reset();
       } else {
-        alert("❌ Error: " + res.error);
+        alert("❌ Server error: " + result.error);
       }
     })
-    .catch(err => {
-      alert("❌ Network Error: " + err.message);
+    .catch(error => {
+      alert("❌ Network error: " + error.message);
+      console.error('Error!', error.message);
     });
   });
 </script>
