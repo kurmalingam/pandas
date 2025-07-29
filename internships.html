@@ -406,10 +406,10 @@
 
     <div class="collapse navbar-collapse" id="navbarContent">
       <div class="navbar-nav mx-auto gap-lg-3">
-        <a class="nav-link px-3 active" href="#product-details" aria-current="page">Product Details</a>
-        <a class="nav-link px-3 active" href="#newsroom-section" aria-current="page">News Room</a>
-        <a class="nav-link px-3 active" href="#careers" aria-current="page">Careers</a>
-        <a class="nav-link px-3 active" href="#about-section" aria-current="page">About Us</a>
+        <a class="nav-link px-3 active" href="index.html" aria-current="page">Product Details</a>
+        <a class="nav-link px-3 active" href="index.html" aria-current="page">News Room</a>
+        <a class="nav-link px-3 active" href="index.html" aria-current="page">Careers</a>
+        <a class="nav-link px-3 active" href="index.html" aria-current="page">About Us</a>
         <a class="nav-link px-2" data-bs-toggle="modal" data-bs-target="#contactModal">Contact Us
         </a>     
       </div>
@@ -465,23 +465,21 @@
             <!-- Contact Form Section -->
             <div class="col-12 col-lg-5 p-2">
               <h6 class="text-dark-green mb-2"><i class="bi bi-send-fill me-1"></i>Send Message</h6>
-              <form>
-                <div class="mb-2">
-                  <input type="text" class="form-control form-control-sm border-light-green" placeholder="Your Name" required>
-                </div>
-                <div class="mb-2">
-                  <input type="tel" class="form-control form-control-sm border-light-green" placeholder="Mobile Number" required>
-                </div>
-                <div class="mb-2">
-                  <input type="email" class="form-control form-control-sm border-light-green" placeholder="Email" required>
-                </div>
-                <div class="mb-2">
-                  <textarea class="form-control form-control-sm border-light-green" rows="2" placeholder="Message" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-dark-green btn-sm w-100 py-1 mt-1 fs-6">
-                  <i class="bi bi-send-fill me-1"></i>Send
-                </button>
-              </form>
+              <form action="https://sheetdb.io/api/v1/ruzmah988g1lb" method="POST" id="contact-form">
+              <div class="mb-2">
+                <input type="text" name="data[Name]" class="form-control" placeholder="Your Name" required>
+              </div>
+              <div class="mb-2">
+                <input type="tel" name="data[Phone]" class="form-control" placeholder="Mobile Number" required>
+              </div>
+              <div class="mb-2">
+                <input type="email" name="data[Email]" class="form-control" placeholder="Email" required>
+              </div>
+              <div class="mb-2">
+                <textarea name="data[Message]" class="form-control" placeholder="Message" rows="3" required></textarea>
+              </div>
+              <button type="submit" class="btn" >Send</button>
+            </form>
             </div>
           </div>
         </div>
@@ -971,6 +969,34 @@
 </script>
 </script>
 
+  <script>
+    //contact-form data
+const form = document.getElementById('contact-form');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    fetch("https://sheetdb.io/api/v1/ruzmah988g1lb", {
+      method: "POST",
+      body: formData
+    })
+    .then(response => {
+      if (response.ok) {
+        // Redirect after success
+        window.location.href = "index.html"; // change to your actual URL
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    })
+    .catch(error => {
+      console.error("Error:", error);
+      alert("Submission failed. Check console.");
+    });
+  });
+
+  </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   
