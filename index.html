@@ -115,23 +115,21 @@
             <!-- Contact Form Section -->
             <div class="col-12 col-lg-5 p-2">
               <h6 class="text-dark-green mb-2"><i class="bi bi-send-fill me-1"></i>Send Message</h6>
-              <form action="https://sheetdb.io/api/v1/l3wplc5fzejd0" method="POST">
-                <div class="mb-2">
-                  <input type="text" class="form-control form-control-sm border-light-green" placeholder="Your Name" required>
-                </div>
-                <div class="mb-2">
-                  <input type="tel" class="form-control form-control-sm border-light-green" placeholder="Mobile Number" required>
-                </div>
-                <div class="mb-2">
-                  <input type="email" class="form-control form-control-sm border-light-green" placeholder="Email" required>
-                </div>
-                <div class="mb-2">
-                  <textarea class="form-control form-control-sm border-light-green" rows="2" placeholder="Message" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-dark-green btn-sm w-100 py-1 mt-1 fs-6">
-                  <i class="bi bi-send-fill me-1"></i>Send
-                </button>
-              </form>
+              <form action="https://sheetdb.io/api/v1/ruzmah988g1lb" method="POST" id="contact-form">
+              <div class="mb-2">
+                <input type="text" name="data[Name]" class="form-control" placeholder="Your Name" required>
+              </div>
+              <div class="mb-2">
+                <input type="tel" name="data[Phone]" class="form-control" placeholder="Mobile Number" required>
+              </div>
+              <div class="mb-2">
+                <input type="email" name="data[Email]" class="form-control" placeholder="Email" required>
+              </div>
+              <div class="mb-2">
+                <textarea name="data[Message]" class="form-control" placeholder="Message" rows="3" required></textarea>
+              </div>
+              <button type="submit" class="btn">Send</button>
+            </form>
             </div>
           </div>
         </div>
