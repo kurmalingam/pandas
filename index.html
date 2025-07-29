@@ -113,7 +113,7 @@
             </div>
             
             <!-- Contact Form Section -->
-<!--             <div class="col-12 col-lg-5 p-2">
+            <div class="col-12 col-lg-5 p-2">
               <h6 class="text-dark-green mb-2"><i class="bi bi-send-fill me-1"></i>Send Message</h6>
               <form action="https://sheetdb.io/api/v1/l3wplc5fzejd0" method="POST">
                 <div class="mb-2">
@@ -132,71 +132,15 @@
                   <i class="bi bi-send-fill me-1"></i>Send
                 </button>
               </form>
-            </div> -->
-            <!-- Contact Form Section -->
-            <!-- Contact Form Section -->
-<!-- Contact Form Section -->
-<div class="col-12 col-lg-5 p-2">
-  <h6 class="text-dark-green mb-2"><i class="bi bi-send-fill me-1"></i>Send Message</h6>
-  <form id="contact-form">
-    <div class="mb-2">
-      <input type="text" name="name" class="form-control form-control-sm border-light-green" placeholder="Your Name" required>
-    </div>
-    <div class="mb-2">
-      <input type="tel" name="phone" class="form-control form-control-sm border-light-green" placeholder="Mobile Number" required>
-    </div>
-    <div class="mb-2">
-      <input type="email" name="email" class="form-control form-control-sm border-light-green" placeholder="Email" required>
-    </div>
-    <div class="mb-2">
-      <textarea name="message" class="form-control form-control-sm border-light-green" rows="2" placeholder="Message" required></textarea>
-    </div>
-    <button type="submit" class="btn btn-dark-green btn-sm w-100 py-1 mt-1 fs-6">
-      <i class="bi bi-send-fill me-1"></i>Send
-    </button>
-  </form>
-</div>
+            </div>
+
         </div>
       </div>
     </div>
   </div>
 </div>
-
+<!-- 
 <!-- Script to handle form submission -->
-<script>
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbwfhbVoa1BpaSnbPi97XLYwj8P2Bbldvs4KUczOpUnqOZp498IFo_a3fdGm_1fd1KSOPQ/exec';
-  const form = document.getElementById('contact-form');
-
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-
-    const formData = {
-      name: form.name.value,
-      phone: form.phone.value,
-      email: form.email.value,
-      message: form.message.value
-    };
-
-    fetch(scriptURL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(formData)
-    })
-    .then(response => response.json())
-    .then(result => {
-      if (result.result === "Success") {
-        alert("✅ Message sent successfully!");
-        form.reset();
-      } else {
-        alert("❌ Server error: " + result.error);
-      }
-    })
-    .catch(error => {
-      alert("❌ Network error: " + error.message);
-      console.error('Error!', error.message);
-    });
-  });
-</script>
 
 
  <!-- Floating 🎓 Button -->
