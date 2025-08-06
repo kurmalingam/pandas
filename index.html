@@ -37,6 +37,9 @@
   <!-- Google Fonts (with font-display: swap) -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+
+
   <!-- Favicon (Modern Approach) -->
   <link rel="icon" href="./Final_logo.jpg" type="image/png">
   <link rel="apple-touch-icon" href="./Final_logo.png">
@@ -55,7 +58,8 @@
     <a href="#" class="navbar-brand d-flex align-items-center">
       <!-- <img src="./panda.png" alt="Dry Pandas Logo" class="logo-img me-2"> -->
        <img src="./Final_logo.jpg" alt="Dry Pandas Logo" class="logo-img img-fluid" />
-      <h4 class="m-0 brand-text">DRYPANDA-FOODS</h4>
+           <h4 class="m-0 brand-text" style="font-family: 'Dancing Script', cursive; ">DRYPANDA-FOODS</h4>
+
     </a>
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-label="Toggle navigation">
@@ -174,57 +178,18 @@
 
 
 
-<!-- Static Glitter Text on White Background (2 lines) -->
 <section class="glitter-static-section">
   <div class="text-container">
     <div class="glitter-text">
-      <span style="--i:0">S</span>
-      <span style="--i:1">o</span>
-      <span style="--i:2">l</span>
-      <span style="--i:3">a</span>
-      <span style="--i:4">r</span>
-      <span style="--i:5">-</span>
-      <span style="--i:6">P</span>
-      <span style="--i:7">o</span>
-      <span style="--i:8">w</span>
-      <span style="--i:9">e</span>
-      <span style="--i:10">r</span>
-      <span style="--i:11">e</span>
-      <span style="--i:12">d</span>
-      <span style="--i:13"> </span>
-      <span style="--i:14">G</span>
-      <span style="--i:15">o</span>
-      <span style="--i:16">o</span>
-      <span style="--i:17">d</span>
-      <span style="--i:18">n</span>
-      <span style="--i:19">e</span>
-      <span style="--i:20">s</span>
-      <span style="--i:21">s</span>
+      <span style="--i:0">Solar-Powered</span>
+      <span style="--i:1">Goodness</span>
     </div>
     <div class="sub-glitter">
-      <span style="--i:0">F</span>
-      <span style="--i:1">r</span>
-      <span style="--i:2">o</span>
-      <span style="--i:3">m</span>
-      <span style="--i:4" > </span>
-      <span style="--i:5">O</span>
-      <span style="--i:6">u</span>
-      <span style="--i:7">r</span>
-      <span style="--i:8"> </span>
-      <span style="--i:9">H</span>
-      <span style="--i:10">a</span>
-      <span style="--i:11">n</span>
-      <span style="--i:12">d</span>
-      <span style="--i:13">s</span>
-      <span style="--i:14"> </span>
-      <span style="--i:15">t</span>
-      <span style="--i:16">o</span>
-      <span style="--i:17"> </span>
-      <span style="--i:18">Y</span>
-      <span style="--i:19">o</span>
-      <span style="--i:20">u</span>
-      <span style="--i:21">r</span>
-      <span style="--i:22">s</span>
+      <span style="--i:0">From</span>
+      <span style="--i:1">Our</span>
+      <span style="--i:2">Hands</span>
+      <span style="--i:3">to</span>
+      <span style="--i:4">Yours</span>
     </div>
   </div>
 </section>
@@ -509,6 +474,23 @@ btn.onclick = () => {
   btn.style.display = 'none';
 };
 
+//navbar collapse
+  document.addEventListener("DOMContentLoaded", function () {
+    const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+    const navbarCollapse = document.querySelector(".navbar-collapse");
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+          toggle: false
+        });
+        bsCollapse.hide();
+      });
+    });
+  });
+
+
+  
 //contact-form data
 const form = document.getElementById('contact-form');
 
@@ -543,5 +525,6 @@ const form = document.getElementById('contact-form');
 
 </body>
 </html>
+
 
 
