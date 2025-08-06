@@ -382,46 +382,61 @@ body {
 
 
 
-/* Static glitter section on white background */
+/* glitter */
 .glitter-static-section {
   background: #fff;
-  color: #000;
   text-align: center;
-  margin-top: 80px;
-  margin-bottom: 30px;
-  
+  padding: 60px 10px 10px;
+  overflow: hidden;
 }
 
-.glitter-static-section .text-container {
-  text-align: center;
-  line-height: 1;
+.text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-family: 'Dancing Script', cursive; 
 }
 
-.glitter-static-section .glitter-text span,
-.glitter-static-section .sub-glitter span {
+.glitter-text,
+.sub-glitter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.glitter-text span,
+.sub-glitter span {
   display: inline-block;
-  animation: glitter 2s infinite, rotate 4s infinite ease-in-out;
+  animation: glitter 2.5s infinite alternate, rotate 6s infinite ease-in-out;
   transform-origin: center;
+  opacity: 0.95;
+  padding: 0 5px;
+  white-space: nowrap;
 }
 
-.glitter-static-section .glitter-text span {
-  font-size: 4.5em;
-  font-weight: bold;
+.glitter-text span {
+  font-size: clamp(1.8rem, 5vw, 4rem);
+  font-weight: 800;
   color: #000;
-  animation-delay: calc(var(--i) * 0.1s);
+  animation-delay: calc(var(--i) * 0.07s);
 }
 
-.glitter-static-section .sub-glitter span {
-  font-size: 2.5em;
-  color: #ff9800;
-  animation-delay: calc(var(--i) * 0.1s + 1s);
+
+.sub-glitter span {
+  font-size: clamp(1.4rem, 5vw, 2.2rem);
+  font-weight: 600;
+  color: #f57c00;
+  letter-spacing: 1px;
+  animation-delay: calc(var(--i) * 0.07s + 0.5s);
 }
 
-/* Same glitter & rotate animation from #home */
+/* Animations */
 @keyframes glitter {
   0%, 100% {
     text-shadow:
-      0 0 5px #fff,
+      0 0 4px #fff,
       0 0 10px #ffd700,
       0 0 20px #ff0;
   }
@@ -435,24 +450,26 @@ body {
 
 @keyframes rotate {
   0%, 100% { transform: rotate(0deg); }
-  50% { transform: rotate(10deg); }
+  50% { transform: rotate(1.5deg); }
 }
+
+/* Responsive */
 @media (max-width: 480px) {
-  .glitter-text{
-    font-size:8px;
+  .glitter-static-section {
+    padding: 70px 5px;
+
   }
-  .sub-glitter{
-    font-size: 14px;
+
+  .glitter-text span {
+    font-size: clamp(1.4rem, 6vw, 2.4rem);
+  }
+
+  .sub-glitter span {
+    font-size: clamp(1.1rem, 5vw, 1.6rem);
+    letter-spacing: 0.8px;
   }
 }
-@media (max-width: 360px) {
-  .glitter-text{
-    font-size:8px;
-  }
-  .sub-glitter{
-    font-size: 14px;
-  }
-}
+
 
 
 
@@ -989,4 +1006,5 @@ body {
   opacity: 1;
   pointer-events: auto;
 }
+
 
