@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Drypanda Food Kart</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    body {
+      background: #f5faf7;
+    }
+    .hero-section {
+      background: linear-gradient(135deg, #228B22 60%, #c3e6cb 100%);
+      box-shadow: 0 6px 32px #228B2233;
+    }
+    .hero-img {
+      border: 5px solid #fff;
+      box-shadow: 0 4px 24px #228B2222;
+    }
+    .card {
+      background: #fff;
+      box-shadow: 0 2px 8px #228B2222;
+      border-radius: 1rem;
+    }
+    .product-card {
+      transition: transform .2s, box-shadow .2s;
+      cursor: pointer;
+      border: 1px solid #228B2277;
+    }
+    .product-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 36px #228B2233;
+      border-color: #145214;
+    }
+    .product-name {
+      font-weight: 600;
+      color: #145214;
+    }
+    .product-price {
+      font-weight: 600;
+      color: #228B22;
+    }
+    .cart-summary {
+      margin-top: 1em;
+      font-weight: bold;
+      color: #145214;
+    }
+    .cart-item {
+      border-bottom: 1px solid #c3e6cb;
+      padding-bottom: 0.5em;
+      margin-bottom: 0.5em;
+    }
+    .sticky-top {
+      top: 80px;
+    }
+    .btn-success {
+      background: linear-gradient(90deg,#228B22,#145214);
+      border: none;
+    }
+    .btn-success:hover,.btn-warning:hover {
+      background: linear-gradient(90deg,#145214,#228B22);
+    }
+    .btn-warning {
+      background: linear-gradient(90deg,#f7e9b3,#f7c81b);
+      color: #145214;
+      border: none;
+    }
+    .modal-content {
+      border-radius: 1.2em;
+      border: 1px solid #228B2299;
+      box-shadow: 0 4px 32px #228B2222;
+    }
+    .navbar {
+      background: #228B22 !important;
+      box-shadow: 0 4px 16px #228B2233;
+    }
+    .navbar .navbar-brand,
+    .navbar .navbar-text {
+      color: #fff !important;
+      text-shadow: 0 2px 8px #14521444;
+    }
+    footer {
+      border-top: 1px solid #c3e6cb;
+      background: #f5faf7;
+      padding: 1.5em 0 0.5em 0;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">Drypanda Food Kart</a>
+      <span class="navbar-text">Solar-Dried Veggies & Fruits</span>
+    </div>
+  </nav>
+
+  <section class="hero-section py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-7">
+          <h1 class="text-white mb-3">Eat Fresh. Eat Solar.</h1>
+          <p class="text-white-50">Order premium solar-dried fruits, veggies, and herbs delivered to your door. Pay conveniently via WhatsApp!</p>
+        </div>
+        <div class="col-md-5 text-center">
+          <img src="https://images.unsplash.com/photo-1465101178521-c1a4c8a965b7?w=400&q=80" class="hero-img rounded-circle" alt="Solar Dried" width="180">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container py-4">
+    <h3 class="mb-4">Products</h3>
+    <div class="row gy-4" id="products-list"></div>
+
+    <div class="row mt-5">
+      <div class="col-md-6">
+        <h4>Your Cart</h4>
+        <div id="cart" class="mb-2"></div>
+        <button id="checkout-btn" class="btn btn-success w-100" data-bs-toggle="modal" data-bs-target="#checkoutModal" disabled>Checkout & Pay via WhatsApp</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Checkout Modal -->
+  <div class="modal fade" id="checkoutModal" tabindex="-1" aria-labelledby="checkoutModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content shadow">
+        <div class="modal-header">
+          <h5 class="modal-title" id="checkoutModalLabel">Checkout</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="checkout-form" autocomplete="off">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="customerName" class="form-label">Name</label>
+              <input type="text" id="customerName" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="customerAddress" class="form-label">Delivery Address</label>
+              <input type="text" id="customerAddress" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="customerWhatsapp" class="form-label">WhatsApp Number</label>
+              <input type="tel" id="customerWhatsapp" class="form-control" required placeholder="e.g. 7842721896">
+            </div>
+            <div class="alert alert-success small">
+              After placing your order, you'll be redirected to WhatsApp to confirm and pay!
+            </div>
+          </div>
+          <div class="modal-footer flex-column">
+            <button type="submit" class="btn btn-success w-100">Place Order & Pay via WhatsApp</button>
+            <button type="button" id="downloadInvoice" class="btn btn-outline-success w-100 mt-2" style="display:none;">Download Invoice</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <footer class="mt-5 text-center">
+    <div class="container">
+      <small>Contact us: <a href="https://wa.me/917842721896" class="text-success">WhatsApp 7842721896</a></small>
+      <br>
+      <small>&copy; 2025 Drypanda Food Kart</small>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Products modeled after your repo, with images
+    const products = [
+      {
+        id: 1,
+        name: "Solar Dried Tomatoes",
+        price: 12.99,
+        description: "Premium sun-dried tomatoes bursting with concentrated flavor.",
+        category: "vegetables",
+        image: "https://images.unsplash.com/photo-1464306076886-c17ce6b8d8c4?w=400&q=80"
+      },
+      {
+        id: 2,
+        name: "Dehydrated Carrot Chips",
+        price: 8.99,
+        description: "Crispy and naturally sweet carrot chips.",
+        category: "vegetables",
+        image: "https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=400&q=80"
+      },
+      {
+        id: 3,
+        name: "Crispy Apple Chips",
+        price: 9.99,
+        description: "All-natural apple chips with no added sugar.",
+        category: "fruits",
+        image: "https://images.unsplash.com/photo-1519864600265-abb23847ef1b?w=400&q=80"
+      },
+      {
+        id: 4,
+        name: "Golden Banana Chips",
+        price: 7.99,
+        description: "Naturally dehydrated banana chips with a delightful crunch.",
+        category: "fruits",
+        image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&q=80"
+      },
+      {
+        id: 5,
+        name: "Mixed Dried Herbs",
+        price: 6.99,
+        description: "Aromatic blend of solar-dried oregano, basil, and thyme.",
+        category: "herbs",
+        image: "https://images.unsplash.com/photo-1465101162946-4377e57745c3?w=400&q=80"
+      },
+      {
+        id: 6,
+        name: "Rainbow Bell Pepper Strips",
+        price: 10.99,
+        description: "Colorful mix of dehydrated red, yellow, and green bell peppers.",
+        category: "vegetables",
+        image: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?w=400&q=80"
+      }
+    ];
+
+    const cart = [];
+
+    function renderProducts() {
+      const container = document.getElementById('products-list');
+      container.innerHTML = products.map(p => `
+        <div class="col-md-6">
+          <div class="card product-card h-100 shadow-sm">
+            <img src="${p.image}" alt="${p.name}" class="card-img-top" style="max-height:180px;object-fit:cover;">
+            <div class="card-body d-flex flex-column">
+              <div class="product-name mb-1">${p.name}</div>
+              <div class="product-desc mb-2">${p.description}</div>
+              <div class="product-price mb-2">$${p.price.toFixed(2)}</div>
+              <button class="btn btn-success mt-auto" onclick="addToCart(${p.id})">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderCart() {
+      const container = document.getElementById('cart');
+      const checkoutBtn = document.getElementById('checkout-btn');
+      if (cart.length === 0) {
+        container.innerHTML = "<em>Your cart is empty.</em>";
+        checkoutBtn.disabled = true;
+        return;
+      }
+      container.innerHTML = cart.map(item => `
+        <div class="cart-item d-flex justify-content-between align-items-center">
+          <span>${item.name} <span class="text-success">x ${item.qty}</span></span>
+          <span>
+            <span class="me-2">$${(item.price * item.qty).toFixed(2)}</span>
+            <button class="btn btn-sm btn-outline-danger" title="Remove one" onclick="removeFromCart(${item.id})">&minus;</button>
+            <button class="btn btn-sm btn-outline-secondary" title="Remove all" onclick="removeAllFromCart(${item.id})">&times;</button>
+          </span>
+        </div>
+      `).join('');
+      // Cart summary
+      const total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+      container.innerHTML += `<div class="cart-summary">Total: $${total.toFixed(2)}</div>`;
+      checkoutBtn.disabled = false;
+    }
+
+    window.addToCart = function(id) {
+      const product = products.find(p => p.id === id);
+      const item = cart.find(i => i.id === id);
+      if (item) {
+        item.qty++;
+      } else {
+        cart.push({ ...product, qty: 1 });
+      }
+      renderCart();
+    }
+
+    window.removeFromCart = function(id) {
+      const idx = cart.findIndex(i => i.id === id);
+      if (idx > -1) {
+        cart[idx].qty--;
+        if (cart[idx].qty <= 0) cart.splice(idx, 1);
+      }
+      renderCart();
+    }
+
+    window.removeAllFromCart = function(id) {
+      const idx = cart.findIndex(i => i.id === id);
+      if (idx > -1) {
+        cart.splice(idx, 1);
+      }
+      renderCart();
+    }
+
+    // Checkout flow
+    document.getElementById('checkout-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('customerName').value.trim();
+      const address = document.getElementById('customerAddress').value.trim();
+      const whatsapp = document.getElementById('customerWhatsapp').value.trim();
+
+      if (!name || !address || !whatsapp || cart.length === 0) return;
+
+      // Prepare order message
+      const orderText = [
+        `*Drypanda Food Order*`,
+        `Name: ${name}`,
+        `Address: ${address}`,
+        `WhatsApp: ${whatsapp}`,
+        `Order:`,
+        ...cart.map(item => `- ${item.name} x${item.qty} ($${(item.price*item.qty).toFixed(2)})`),
+        `Total: $${cart.reduce((sum, item) => sum + item.price * item.qty, 0).toFixed(2)}`
+      ].join('\n');
+
+      // Send order to Google Sheet
+      fetch("https://api.sheetbest.com/sheets/08ed0c01-6022-4032-a2c3-a40cdfac921e", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          address,
+          whatsapp,
+          order: cart.map(item => `${item.name} x${item.qty}`).join(", "),
+          total: cart.reduce((sum, item) => sum + item.price * item.qty, 0)
+        })
+      }).catch(()=>{});
+
+      // WhatsApp checkout (India country code 91 + your business number)
+      const encodedMsg = encodeURIComponent(orderText);
+      const whatsappNumber = "917842721896";
+      window.open(`https://wa.me/${whatsappNumber}?text=${encodedMsg}`, "_blank");
+
+      // Store latest order for invoice
+      window.latestOrder = {
+        name,
+        address,
+        whatsapp,
+        cart: [...cart],
+        total: cart.reduce((sum, item) => sum + item.price * item.qty, 0),
+        date: new Date().toLocaleString(),
+        invoiceNo: "DPF-" + Date.now()
+      };
+
+      // Show invoice button
+      document.getElementById('downloadInvoice').style.display = 'block';
+
+      // Reset after checkout
+      cart.length = 0;
+      renderCart();
+      document.getElementById('checkout-form').reset();
+      document.querySelector('.btn-close').click();
+    });
+
+    // Invoice PDF generation
+    document.getElementById('downloadInvoice').onclick = function() {
+      if (!window.latestOrder) return;
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      doc.setFont("helvetica");
+      doc.setFontSize(16);
+      doc.text("Drypanda Food - Invoice", 20, 20);
+      doc.setFontSize(11);
+      doc.text(`Invoice #: ${window.latestOrder.invoiceNo}`, 20, 30);
+      doc.text(`Date: ${window.latestOrder.date}`, 20, 36);
+      doc.text(`Customer: ${window.latestOrder.name}`, 20, 44);
+      doc.text(`Address: ${window.latestOrder.address}`, 20, 50);
+      doc.text(`WhatsApp: ${window.latestOrder.whatsapp}`, 20, 56);
+
+      let y = 68;
+      doc.text("Order Summary:", 20, y);
+      y += 8;
+      window.latestOrder.cart.forEach(item => {
+        doc.text(`- ${item.name} x${item.qty} - $${(item.price*item.qty).toFixed(2)}`, 22, y);
+        y += 7;
+      });
+      doc.text(`Total: $${window.latestOrder.total.toFixed(2)}`, 20, y + 4);
+
+      doc.setFontSize(9);
+      doc.text("Thank you for shopping with Drypanda Food!", 20, y + 15);
+
+      doc.save(`Invoice_${window.latestOrder.invoiceNo}.pdf`);
+    };
+
+    // Initial render
+    renderProducts();
+    renderCart();
+  </script>
+</body>
+</html>
